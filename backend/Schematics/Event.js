@@ -8,6 +8,8 @@ const EventSchema = new mongoose.Schema({
   emailRegistry: { type: Array, required: true },
   eventAdmins: { type: Array, required: true },
   eventUpdatePosts: { type: Array, required: true },
+  hostEmail: { type: String, required: true },
+  publicStatus: { type: Boolean, required: true },
 });
 
 module.exports = mongoose.model("Event", EventSchema);

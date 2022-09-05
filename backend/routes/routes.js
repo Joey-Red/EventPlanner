@@ -33,9 +33,9 @@ router.use(
 );
 
 router.post("/create-post", (req, res, next) => {
-  if (!session.user) {
-    return res.status(401).send();
-  }
+  // if (!session.user) {
+  //   return res.status(401).send();
+  // }
   const post = new Post({
     postBody: req.body.postBody,
     postUser: req.body.username,
@@ -51,33 +51,45 @@ router.post("/create-post", (req, res, next) => {
 
 // Create Event
 router.post("/create-event", (req, res, next) => {
-  if (!session.user) {
-    return res.status(401).send();
-  }
+  // if (!session.user) {
+  //   return res.status(401).send();
+  // }
   console.log(req.body);
-  // These Req.body are probably not right, will have to check
-  // the req to see what we get.
-
-  // Also update the users event count by + 1
   const event = new Event({
     eventTitle: req.body.eventTitle,
     eventDescription: req.body.eventDescription,
     eventCreator: req.body.eventCreator,
     dateCreated: new Date(),
-    // May not have upon creation vv
     emailRegistry: req.body.emailRegistry,
     eventAdmins: req.body.eventAdmins,
     eventUpdatePosts: req.body.eventUpdatePosts,
-    // May not have upon creation ^^
+    hostEmail: req.body.hostEmail,
+    publicStatus: req.body.publicStatus,
   }).save((err) => {
     if (err) {
       return next(err);
     }
-    // res.redirect("/");
-    // res.json(post);
+  });
+  // .then(() => {
+  User.findOneAndUpdate(
+    { username: req.body.hostEmail },
+    {
+      $inc: { numEvents: +1 },
+    },
+    function (err, docs) {
+      res.json(docs);
+    }
+  );
+  // });
+});
+router.get("/retrieve_posts", (req, res) => {
+  Event.find({ publicStatus: true }, (err, result) => {
+    if (err) {
+      res.json(err);
+    }
+    res.json(result);
   });
 });
-
 // Sign in with google and create account on site.
 router.post("/log-in", async (req, res, done) => {
   // console.log(req.body);
