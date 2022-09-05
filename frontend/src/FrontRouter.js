@@ -5,13 +5,11 @@ import CreateEvent from "./components/CreateEvent";
 
 function FrontRouter() {
   return (
-    <div className="Routes">
-      <>
-        <Routes>
-          <Route exact path="/" element={<App />} />
-          <Route path="/create_event" element={<CreateEvent />} />
-        </Routes>
-      </>
+    <div className="routes">
+      <Routes>
+        <Route exact path="/" element={<App />} />
+        <Route path="/create_event" element={<CreateEvent />} />
+      </Routes>
     </div>
   );
 }

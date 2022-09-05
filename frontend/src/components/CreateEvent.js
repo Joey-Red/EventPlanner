@@ -14,6 +14,8 @@ function CreateEvent() {
   let [currEmail, setCurrEmail] = useState("");
   let [currFirstName, setCurrFirstname] = useState();
   let [currLastName, setCurrLastName] = useState();
+  let [hostEmail, setHostEmail] = useState("");
+  let [publicStatus, setPublicStatus] = useState(false);
   // const checkUser = localStorage.getItem("user");
   // const decodedUser = jwt_decode(checkUser);
   const dispatch = useDispatch();
@@ -27,12 +29,20 @@ function CreateEvent() {
         `https://oauth2.googleapis.com/tokeninfo?id_token=${checkUser}`
       )
         .then(function (response) {
-          const decodedUser = jwt_decode(checkUser);
-          dispatch(login(decodedUser));
-          dispatch(authUser(true));
-          console.log(decodedUser);
-          setCurrFirstname(decodedUser.given_name);
-          setCurrLastName(decodedUser.family_name);
+          console.log(response);
+          if (response.status === 200) {
+            console.log("triggered1");
+            const decodedUser = jwt_decode(checkUser);
+            dispatch(login(decodedUser));
+            dispatch(authUser(true));
+            setCurrFirstname(decodedUser.given_name);
+            setCurrLastName(decodedUser.family_name);
+            setHostEmail(decodedUser.email);
+          } else {
+            console.log("triggered");
+            dispatch(authUser(false));
+            window.location.href = "http://localhost:3001/";
+          }
         })
         .catch(function (error) {
           dispatch(authUser(false));
@@ -49,6 +59,9 @@ function CreateEvent() {
     emailRegistry.push(currEmail);
     setCurrEmail("");
   }
+  const handleChange = (e) => {
+    setPublicStatus(e.target.checked);
+  };
   function postEvent(e) {
     if (e.error) {
       console.log("Error :)");
@@ -60,10 +73,16 @@ function CreateEvent() {
         emailRegistry: emailRegistry,
         eventAdmins: eventAdmins,
         eventUpdatePosts: [],
+        hostEmail: hostEmail,
+        publicStatus: publicStatus,
       }).then((res) => {
         console.log(res);
       });
     }
+    setEventAdmins([]);
+    setEmailRegistry([]);
+    setEventDescription("");
+    setEventTitle("");
   }
 
   return (
@@ -77,6 +96,7 @@ function CreateEvent() {
           onChange={(e) => {
             setEventTitle(e.target.value);
           }}
+          value={eventTitle}
         />
         <input
           id="eventDescription"
@@ -85,6 +105,7 @@ function CreateEvent() {
           onChange={(e) => {
             setEventDescription(e.target.value);
           }}
+          value={eventDescription}
         />
         <form action="">
           <label htmlFor="currEventAdmin">
@@ -133,6 +154,15 @@ function CreateEvent() {
             );
           })}
         </form>
+        <label htmlFor="public">Is this a public event?</label>
+        <input
+          className="checkbox"
+          type="checkbox"
+          name="public"
+          id="public"
+          checked={publicStatus}
+          onChange={handleChange}
+        />
         <button onClick={(e) => postEvent(e)}>test</button>
       </div>
     </div>

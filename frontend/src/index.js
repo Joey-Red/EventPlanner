@@ -6,6 +6,9 @@ import { BrowserRouter } from "react-router-dom";
 import userReducer from "./features/user";
 import FrontRouter from "./FrontRouter";
 import authReducer from "./features/authState";
+import "./styles/stylesheet.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 const store = configureStore({
   reducer: {
     user: userReducer,

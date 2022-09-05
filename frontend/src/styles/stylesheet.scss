@@ -1,0 +1,54 @@
+// Variables
+// $primary-light: #d90429;
+// $primary-light-opaque: #d90429e6;
+// $secondary-light: #ef233c;
+// $primary-dark: #2b2d42;
+// $secondary-dark: #8d99ae;
+// $light: #edf2f4;
+$primary-light: #eb8276;
+$primary-light-opaque: #eb8276f5;
+$secondary-light: #76dfeb;
+$primary-dark: #4c5454;
+$secondary-dark: #523f38;
+$light: #ffffff;
+$button-black: #212529;
+// Reset
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+.routes {
+  background-color: $light;
+}
+.navBar {
+  // background: $primary-light-opaque;
+  // background: #fffffff5;
+  // background: $light;
+  background-color: $button-black;
+}
+
+.pubEventHeader {
+  // color: $light;
+}
+
+.pubEventContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  max-height: 596px;
+  overflow: hidden;
+}
+// Card Styles
+#singleCard {
+  // background-color: $light;
+  // background-color: $secondary-light;
+}
+.eventTitle {
+  // color: $primary-light;
+}
+.publicEventInfo {
+  z-index: 99999;
+}
