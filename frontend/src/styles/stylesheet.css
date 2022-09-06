@@ -18,10 +18,28 @@
 .pubEventContainer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  max-height: 596px;
+  max-height: 894px;
   overflow: hidden;
 }
 
 .publicEventInfo {
   z-index: 99999;
+}
+
+.footer {
+  background-color: #212529;
+}
+
+.footerLinks {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 18px;
+}
+
+.aboutUs,
+.aboutUsUnder,
+.footerLinks a,
+.footerLinks a:visited {
+  color: #ffffff;
 }/*# sourceMappingURL=stylesheet.css.map */

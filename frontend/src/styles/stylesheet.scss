@@ -38,7 +38,7 @@ $button-black: #212529;
 .pubEventContainer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  max-height: 596px;
+  max-height: 894px;
   overflow: hidden;
 }
 // Card Styles
@@ -51,4 +51,19 @@ $button-black: #212529;
 }
 .publicEventInfo {
   z-index: 99999;
+}
+.footer {
+  background-color: $button-black;
+}
+.footerLinks {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 18px;
+}
+.aboutUs,
+.aboutUsUnder,
+.footerLinks a,
+.footerLinks a:visited {
+  color: $light;
 }
