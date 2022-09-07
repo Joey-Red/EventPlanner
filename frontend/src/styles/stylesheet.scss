@@ -11,7 +11,90 @@ $secondary-light: #76dfeb;
 $primary-dark: #4c5454;
 $secondary-dark: #523f38;
 $light: #ffffff;
+$light-opaque: rgba(0, 0, 0, 0.6);
 $button-black: #212529;
+
+// Custom Font
+@font-face {
+  font-family: "lemon_milkregular_italic";
+  src: url("./fonts/webfontkit-20220906-143159/lemonmilk-regularitalic-webfont.woff2")
+      format("woff2"),
+    url("./fonts/webfontkit-20220906-143159/lemonmilk-regularitalic-webfont.woff")
+      format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "lemon_milkregular";
+  src: url("./fonts/webfontkit-20220906-143159/lemonmilk-regular-webfont.woff2")
+      format("woff2"),
+    url("./fonts/webfontkit-20220906-143159/lemonmilk-regular-webfont.woff")
+      format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "lemon_milkmedium_italic";
+  src: url("./fonts/webfontkit-20220906-143159/lemonmilk-mediumitalic-webfont.woff2")
+      format("woff2"),
+    url("./fonts/webfontkit-20220906-143159/lemonmilk-mediumitalic-webfont.woff")
+      format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "lemon_milkmedium";
+  src: url("./fonts/webfontkit-20220906-143159/lemonmilk-medium-webfont.woff2")
+      format("woff2"),
+    url("./fonts/webfontkit-20220906-143159/lemonmilk-medium-webfont.woff")
+      format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "lemon_milklight_italic";
+  src: url("./fonts/webfontkit-20220906-143159/lemonmilk-lightitalic-webfont.woff2")
+      format("woff2"),
+    url("./fonts/webfontkit-20220906-143159/lemonmilk-lightitalic-webfont.woff")
+      format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "lemon_milklight";
+  src: url("./fonts/webfontkit-20220906-143159/lemonmilk-light-webfont.woff2")
+      format("woff2"),
+    url("./fonts/webfontkit-20220906-143159/lemonmilk-light-webfont.woff")
+      format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "lemon_milkbold_italic";
+  src: url("./fonts/webfontkit-20220906-143159/lemonmilk-bolditalic-webfont.woff2")
+      format("woff2"),
+    url("./fonts/webfontkit-20220906-143159/lemonmilk-bolditalic-webfont.woff")
+      format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "lemon_milkbold";
+  src: url("./fonts/webfontkit-20220906-143159/lemonmilk-bold-webfont.woff2")
+      format("woff2"),
+    url("./fonts/webfontkit-20220906-143159/lemonmilk-bold-webfont.woff")
+      format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 // Reset
 *,
 ::before,
@@ -20,21 +103,73 @@ $button-black: #212529;
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
+  // font-family: "lemon_milklight";
+  // text-transform: uppercase;
 }
+
 .routes {
   background-color: $light;
 }
 .navBar {
-  // background: $primary-light-opaque;
-  // background: #fffffff5;
-  // background: $light;
   background-color: $button-black;
 }
+.navItemContainer {
+  border: 1px solid white;
+  padding: 10px 8px 8px 8px;
+  border-radius: 0.375rem;
+}
 
+.navBarOption,
+#basic-nav-dropdown {
+  font-family: "lemon_milkregular";
+  text-transform: uppercase;
+}
+.agHeaderBg {
+  // background: $light;
+  // opacity: 0.8;
+  // width: fit-content;
+  position: relative;
+}
+
+.agImage {
+  background: url(../img/planning.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  filter: brightness(60%);
+}
+.agHeader,
+.peHeader,
+.ceHeader {
+  font-family: "lemon_milkregular";
+  text-transform: uppercase;
+  color: $light;
+}
+.ceHeader {
+  color: $button-black;
+}
+.ceFullContainer {
+  // background: url(../img/outside.jpg) no-repeat center center fixed;
+  // -webkit-background-size: cover;
+  // -moz-background-size: cover;
+  // -o-background-size: cover;
+  // background-size: cover;
+  // position: absolute;
+  // top: 0;
+  // right: 0;
+  // bottom: 0;
+  // left: 0;
+  // filter: brightness(60%);
+}
 .pubEventHeader {
   // color: $light;
 }
-
 .pubEventContainer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -45,9 +180,29 @@ $button-black: #212529;
 #singleCard {
   // background-color: $light;
   // background-color: $secondary-light;
+  // DBDBD6
+  color: $light;
+  background-color: $light-opaque;
 }
 .eventTitle {
   // color: $primary-light;
+}
+// .pubEventFullContainer {
+//
+// }
+.peImage {
+  // background: url("");
+  background: url(../img/peopleAndTent.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  filter: brightness(60%);
 }
 .publicEventInfo {
   z-index: 99999;
@@ -59,7 +214,7 @@ $button-black: #212529;
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 18px;
+  padding: 20px 40px 20px 40px;
 }
 .aboutUs,
 .aboutUsUnder,

@@ -26,7 +26,7 @@ function EventPlaceholder(props) {
       <Card
         className="mb-3"
         id="singleCard"
-        style={{ maxHeight: "234px", minHeight: "282px" }}
+        style={{ maxHeight: "234px", minHeight: "282px", zIndex: "99999" }}
       >
         <Card.Body>
           <Card.Title className="eventTitle">{eventTitle}</Card.Title>
@@ -49,9 +49,17 @@ function EventPlaceholder(props) {
             </Row>
           </Col>
         </Card.Body>
-        <Alert variant="light" style={{ marginBottom: "0" }}>
+        <Card.Body
+          style={{
+            marginBottom: "0",
+            // color: "#5F7358",
+            color: "#CBEAC0",
+            // textTransform: "uppercase",
+            // "#636464"
+          }}
+        >
           This event is open to the public!
-        </Alert>
+        </Card.Body>
         <Button variant="dark">Check out this event</Button>
       </Card>
     </Container>

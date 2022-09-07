@@ -21,6 +21,12 @@ function CustomNavbar() {
     fontSize: "1rem",
     // alignSelf: "end",
   };
+  // let moreStyles = {
+  //   fontFamily: "lemon_milkregular",
+  //   textTransform: "uppercase",
+  //   color: "#ffffff",
+  //   fontSize: "1rem",
+  // };
   return (
     <Navbar
       className="navBar"
@@ -40,28 +46,36 @@ function CustomNavbar() {
             style={{ maxHeight: "150px" }}
           />
         </Navbar.Brand>
-        <NavDropdown
-          title="More Options"
-          id="basic-nav-dropdown"
-          style={stingyStyles}
-        >
-          <NavDropdown.Item href="http://localhost:3001/create_event">
-            Plan Your next Event
-          </NavDropdown.Item>
-          <NavDropdown.Item href="#">Action</NavDropdown.Item>
-          <NavDropdown.Item style={stingyStyles} href="#">
-            <LogIn />
-          </NavDropdown.Item>
-        </NavDropdown>
-        <Nav.Link href="#" style={stingyStyles}>
-          Home
-        </Nav.Link>
-        <Nav.Link
-          href="http://localhost:3001/create_event"
-          style={stingyStyles}
-        >
-          Create Event
-        </Nav.Link>
+        <div className="navItemContainer">
+          <NavDropdown
+            title="More Options"
+            id="basic-nav-dropdown"
+            style={stingyStyles}
+            className="navBarOption"
+          >
+            <NavDropdown.Item href="http://localhost:3001/create_event">
+              Plan Your next Event
+            </NavDropdown.Item>
+            <NavDropdown.Item href="#">Action</NavDropdown.Item>
+            <NavDropdown.Item style={stingyStyles} href="#">
+              <LogIn />
+            </NavDropdown.Item>
+          </NavDropdown>
+        </div>
+        <div className="navItemContainer">
+          <Nav.Link href="#" style={stingyStyles} className="navBarOption">
+            Home
+          </Nav.Link>
+        </div>
+        <div className="navItemContainer">
+          <Nav.Link
+            href="http://localhost:3001/create_event"
+            style={stingyStyles}
+            className="navBarOption"
+          >
+            Create Event
+          </Nav.Link>
+        </div>
       </Container>
     </Navbar>
   );
