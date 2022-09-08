@@ -102,6 +102,38 @@
   color: #212529;
 }
 
+.ceInsideHeader {
+  font-size: 1.3rem;
+  font-family: "lemon_milkregular";
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.ceCardBody {
+  background: rgba(33, 37, 41, 0.4941176471);
+  border-radius: 0.375rem;
+}
+
+.checkbox {
+  color: #ffffff;
+  font-size: 1.1rem;
+}
+
+.ceFullContainer {
+  position: relative;
+}
+
+.ceBgImg {
+  background: url(../img/outside.jpg) no-repeat center center fixed;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  filter: brightness(60%);
+}
+
 .pubEventContainer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

@@ -32,6 +32,7 @@ function CreateEvent() {
   let [currLastName, setCurrLastName] = useState();
   let [hostEmail, setHostEmail] = useState("");
   let [publicStatus, setPublicStatus] = useState(false);
+  let [alert, setAlert] = useState(false);
   // const checkUser = localStorage.getItem("user");
   // const decodedUser = jwt_decode(checkUser);
   const dispatch = useDispatch();
@@ -77,7 +78,7 @@ function CreateEvent() {
   }
   const handleChange = (e) => {
     setPublicStatus(e.target.checked);
-    console.log(publicStatus);
+    setAlert(e.target.checked);
   };
   function postEvent(e) {
     if (e.error) {
@@ -104,16 +105,30 @@ function CreateEvent() {
 
   return (
     <div className="ceFullContainer">
+      <div className="ceBgImg"></div>
       <TopWave />
       <Container>
         <Container>
-          <div style={{ marginTop: "255px" }}>
+          <div
+            style={{
+              paddingTop: "255px",
+              paddingBottom: "209px",
+            }}
+          >
             <h1 className="ceHeader">Create Event</h1>
             <Form className="ceFormContainer">
-              <Card className="mb-4">
-                <Card.Body>
+              {/* This is border vv */}
+              <Card
+                style={{
+                  background: "none",
+                }}
+              >
+                {/* This is background vv */}
+                <Card.Body className="ceCardBody">
                   <Row className="mb-1">
-                    <Card.Text>Watch how easy this is ..</Card.Text>
+                    <Card.Text className="ceInsideHeader">
+                      Watch how easy this is ..
+                    </Card.Text>
                   </Row>
                   <InputGroup>
                     <Col>
@@ -151,7 +166,16 @@ function CreateEvent() {
                         <InputGroup.Text className="mb-1">
                           When?
                         </InputGroup.Text>
-                        <input type="date" name="eventDate" id="eventDate" />
+                        <input
+                          type="date"
+                          name="eventDate"
+                          id="eventDate"
+                          style={{
+                            borderRadius: "0.375rem",
+                            border: "none",
+                            padding: "6px 12px",
+                          }}
+                        />
                       </Row>
                       <Row className="mb-1">
                         <InputGroup.Text className="mb-1">
@@ -185,7 +209,8 @@ function CreateEvent() {
                       <Row className="mb-1">
                         <InputGroup.Text className="mb-1">
                           Who is invited? Add their email, so we can send this
-                          invite to them!
+                          invite to them! You will also get a link to share
+                          manually.
                         </InputGroup.Text>
                         <Form.Control
                           className="mb-1"
@@ -232,9 +257,25 @@ function CreateEvent() {
                           </div>
                         </Form>
                       </Row>
-                      <Button variant="dark" onClick={(e) => postEvent(e)}>
-                        Thats it!
-                      </Button>
+                      <Row>
+                        {alert ? (
+                          <Alert variant="warning">
+                            Checking this box allows anyone to view the details
+                            of this event.
+                          </Alert>
+                        ) : (
+                          <></>
+                        )}
+                      </Row>
+                      <Row>
+                        <Button
+                          style={{ maxWidth: "fit-content" }}
+                          variant="dark"
+                          onClick={(e) => postEvent(e)}
+                        >
+                          Thats it!
+                        </Button>
+                      </Row>
                     </Col>
                   </InputGroup>
                 </Card.Body>

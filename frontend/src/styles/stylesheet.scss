@@ -13,6 +13,7 @@ $secondary-dark: #523f38;
 $light: #ffffff;
 $light-opaque: rgba(0, 0, 0, 0.6);
 $button-black: #212529;
+$button-black-opaque: #2125297e;
 
 // Custom Font
 @font-face {
@@ -154,18 +155,35 @@ $button-black: #212529;
 .ceHeader {
   color: $button-black;
 }
+.ceInsideHeader {
+  font-size: 1.3rem;
+  font-family: "lemon_milkregular";
+  text-transform: uppercase;
+  color: $light;
+}
+.ceCardBody {
+  background: $button-black-opaque;
+  border-radius: 0.375rem;
+}
+.checkbox {
+  color: $light;
+  font-size: 1.1rem;
+}
 .ceFullContainer {
-  // background: url(../img/outside.jpg) no-repeat center center fixed;
-  // -webkit-background-size: cover;
-  // -moz-background-size: cover;
-  // -o-background-size: cover;
-  // background-size: cover;
-  // position: absolute;
-  // top: 0;
-  // right: 0;
-  // bottom: 0;
-  // left: 0;
-  // filter: brightness(60%);
+  position: relative;
+}
+.ceBgImg {
+  background: url(../img/outside.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  filter: brightness(60%);
 }
 .pubEventHeader {
   // color: $light;
