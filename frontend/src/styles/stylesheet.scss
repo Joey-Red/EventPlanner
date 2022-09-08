@@ -6,7 +6,7 @@
 // $secondary-dark: #8d99ae;
 // $light: #edf2f4;
 $primary-light: #eb8276;
-$primary-light-opaque: #eb8276f5;
+$primary-light-opaque: #eb82764d;
 $secondary-light: #76dfeb;
 $primary-dark: #4c5454;
 $secondary-dark: #523f38;
@@ -162,7 +162,8 @@ $button-black-opaque: #2125297e;
   color: $light;
 }
 .ceCardBody {
-  background: $button-black-opaque;
+  // background: $button-black-opaque;
+  background: $primary-light-opaque;
   border-radius: 0.375rem;
 }
 .checkbox {
@@ -184,6 +185,9 @@ $button-black-opaque: #2125297e;
   bottom: 0;
   left: 0;
   filter: brightness(60%);
+}
+.adminContainer {
+  background: white;
 }
 .pubEventHeader {
   // color: $light;

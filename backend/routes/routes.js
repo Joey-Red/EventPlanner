@@ -65,6 +65,8 @@ router.post("/create-event", (req, res, next) => {
     eventUpdatePosts: req.body.eventUpdatePosts,
     hostEmail: req.body.hostEmail,
     publicStatus: req.body.publicStatus,
+    eventDate: req.body.eventDate,
+    eventTime: req.body.eventTime,
   }).save((err) => {
     if (err) {
       return next(err);

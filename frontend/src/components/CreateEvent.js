@@ -33,8 +33,9 @@ function CreateEvent() {
   let [hostEmail, setHostEmail] = useState("");
   let [publicStatus, setPublicStatus] = useState(false);
   let [alert, setAlert] = useState(false);
-  // const checkUser = localStorage.getItem("user");
-  // const decodedUser = jwt_decode(checkUser);
+  let [eventTime, setEventTime] = useState("");
+  let [eventDate, setEventDate] = useState("");
+
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.value);
   const authState = useSelector((auth) => auth.authState.value);
@@ -93,6 +94,8 @@ function CreateEvent() {
         eventUpdatePosts: [],
         hostEmail: hostEmail,
         publicStatus: publicStatus,
+        eventDate: eventDate,
+        eventTime: eventTime,
       }).then((res) => {
         console.log(res);
       });
@@ -124,7 +127,7 @@ function CreateEvent() {
                 }}
               >
                 {/* This is background vv */}
-                <Card.Body className="ceCardBody">
+                <Card.Body className="ceCardBody" style={{ padding: "30px" }}>
                   <Row className="mb-1">
                     <Card.Text className="ceInsideHeader">
                       Watch how easy this is ..
@@ -167,6 +170,7 @@ function CreateEvent() {
                           When?
                         </InputGroup.Text>
                         <input
+                          className="mb-1"
                           type="date"
                           name="eventDate"
                           id="eventDate"
@@ -175,7 +179,17 @@ function CreateEvent() {
                             border: "none",
                             padding: "6px 12px",
                           }}
+                          onChange={(e) => setEventDate(e.target.value)}
                         />
+                        <Form.Control
+                          id="timeInput"
+                          type="text"
+                          placeholder="8pm"
+                          onChange={(e) => {
+                            setEventTime(e.target.value);
+                          }}
+                          value={eventTime}
+                        ></Form.Control>
                       </Row>
                       <Row className="mb-1">
                         <InputGroup.Text className="mb-1">
@@ -198,13 +212,24 @@ function CreateEvent() {
                         >
                           Add Admin
                         </Button>
-                        {eventAdmins.map((admin) => {
-                          return (
-                            <div className="admin" key={uuidv4()}>
-                              {admin}
-                            </div>
-                          );
-                        })}
+                        <Container
+                          className="adminContainer"
+                          style={{ borderRadius: "0.375rem" }}
+                        >
+                          <Row>
+                            {eventAdmins.map((admin) => {
+                              return (
+                                <div
+                                  style={{ maxWidth: "fit-content" }}
+                                  className="admin"
+                                  key={uuidv4()}
+                                >
+                                  {admin}
+                                </div>
+                              );
+                            })}
+                          </Row>
+                        </Container>
                       </Row>
                       <Row className="mb-1">
                         <InputGroup.Text className="mb-1">
@@ -222,26 +247,31 @@ function CreateEvent() {
                             setCurrEmail(e.target.value);
                           }}
                         ></Form.Control>
-                        {eventAdmins.map((admin) => {
-                          return (
-                            <div className="admin" key={uuidv4()}>
-                              {admin}
-                            </div>
-                          );
-                        })}
                         <Button
+                          className="mb-1"
                           variant="dark"
                           onClick={(e) => addToEmailList(e.preventDefault())}
                         >
                           Add Email
                         </Button>
-                        {emailRegistry.map((email) => {
-                          return (
-                            <div className="admin" key={uuidv4()}>
-                              {email}
-                            </div>
-                          );
-                        })}
+                        <Container
+                          className="adminContainer mb-1"
+                          style={{ borderRadius: "0.375rem" }}
+                        >
+                          <Row>
+                            {emailRegistry.map((email) => {
+                              return (
+                                <div
+                                  className="admin"
+                                  key={uuidv4()}
+                                  style={{ maxWidth: "fit-content" }}
+                                >
+                                  {email}
+                                </div>
+                              );
+                            })}
+                          </Row>
+                        </Container>
                       </Row>
                       <Row className="mb-1">
                         <Form>
