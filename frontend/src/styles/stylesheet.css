@@ -69,6 +69,10 @@
   border-radius: 0.375rem;
 }
 
+.signOutLink {
+  color: black;
+}
+
 .navBarOption,
 #basic-nav-dropdown {
   font-family: "lemon_milkregular";

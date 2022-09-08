@@ -90,16 +90,18 @@ function LogIn() {
   }, []);
 
   return (
-    <Container>
+    <>
       <div id="signInDiv"></div>
       {authState === true ? (
         <>
-          <div onClick={(e) => handleSignOut(e)}>Sign Out</div>{" "}
+          <div className="signOutLink" onClick={(e) => handleSignOut(e)}>
+            Sign Out
+          </div>{" "}
         </>
       ) : (
         <></>
       )}
-    </Container>
+    </>
   );
 }
 

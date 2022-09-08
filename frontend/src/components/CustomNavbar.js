@@ -56,7 +56,7 @@ function CustomNavbar() {
             <NavDropdown.Item href="http://localhost:3001/create_event">
               Plan Your next Event
             </NavDropdown.Item>
-            <NavDropdown.Item href="#">Action</NavDropdown.Item>
+            <NavDropdown.Item href="#">View Public Events</NavDropdown.Item>
             <NavDropdown.Item style={stingyStyles} href="#">
               <LogIn />
             </NavDropdown.Item>
