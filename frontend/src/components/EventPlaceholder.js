@@ -20,7 +20,12 @@ function EventPlaceholder(props) {
     hostEmail,
     eventUpdatePosts,
     loaded,
+    postId,
   } = props;
+  let rerout = (e) => {
+    console.log(postId);
+    window.location = `/view_event/${postId}`;
+  };
   return (
     <Container>
       <Card
@@ -60,7 +65,9 @@ function EventPlaceholder(props) {
         >
           This event is open to the public!
         </Card.Body>
-        <Button variant="dark">Check out this event</Button>
+        <Button variant="dark" onClick={() => rerout()}>
+          Check out this event
+        </Button>
       </Card>
     </Container>
   );

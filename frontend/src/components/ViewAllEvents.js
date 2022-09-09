@@ -63,6 +63,9 @@ function ViewAllEvents() {
                         eventAdmins={post.eventAdmins}
                         eventUpdatePosts={post.eventUpdatePosts}
                         hostEmail={post.hostEmail}
+                        postId={post._id}
+                        // Date
+                        // Time
                       />
                     </div>
                   </div>

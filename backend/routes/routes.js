@@ -54,7 +54,7 @@ router.post("/create-event", (req, res, next) => {
   // if (!session.user) {
   //   return res.status(401).send();
   // }
-  console.log(req.body);
+  // console.log(req.body);
   const event = new Event({
     eventTitle: req.body.eventTitle,
     eventDescription: req.body.eventDescription,
@@ -89,6 +89,15 @@ router.get("/retrieve_posts", (req, res) => {
     if (err) {
       res.json(err);
     }
+    res.json(result);
+  });
+});
+router.get("/retrieve_post/:id", (req, res) => {
+  Event.findOne({ _id: req.headers.eventid }, (err, result) => {
+    if (err) {
+      res.json(err);
+    }
+    console.log(result);
     res.json(result);
   });
 });

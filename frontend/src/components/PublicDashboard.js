@@ -25,9 +25,7 @@ function PublicDashboard() {
         setListOfPosts(res.data);
         setPostsLoaded(true);
       })
-      .catch(function (err) {
-        console.log(err);
-      });
+      .catch(function (err) {});
   }, []);
   //  style={{ paddingTop: "255px" }}
   let rerout = () => {
@@ -68,6 +66,7 @@ function PublicDashboard() {
                         eventAdmins={post.eventAdmins}
                         eventUpdatePosts={post.eventUpdatePosts}
                         hostEmail={post.hostEmail}
+                        postId={post._id}
                       />
                     </div>
                   </div>

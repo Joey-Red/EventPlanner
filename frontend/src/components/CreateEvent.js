@@ -47,9 +47,7 @@ function CreateEvent() {
         `https://oauth2.googleapis.com/tokeninfo?id_token=${checkUser}`
       )
         .then(function (response) {
-          console.log(response);
           if (response.status === 200) {
-            console.log("triggered1");
             const decodedUser = jwt_decode(checkUser);
             dispatch(login(decodedUser));
             dispatch(authUser(true));

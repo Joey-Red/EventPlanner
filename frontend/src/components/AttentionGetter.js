@@ -15,8 +15,15 @@ import {
 } from "react-bootstrap";
 function AttentionGetter() {
   let noBackground = {
-    // BDBDB6
-    // F0F0ED
+    background: "#F0F0ED",
+    padding: "12px",
+  };
+  let noBackgroundForm = {
+    background: "#F0F0ED",
+    // padding: "12px",
+    borderRadius: "0.375rem",
+  };
+  let noBackgroundBody = {
     background: "#F0F0ED",
   };
   let rerout = () => {
@@ -64,9 +71,9 @@ function AttentionGetter() {
                 background: "none",
               }}
             >
-              <Form style={noBackground}>
+              <Form style={noBackgroundForm}>
                 <Card style={noBackground}>
-                  <Card.Body style={noBackground}>
+                  <Card.Body style={noBackgroundBody}>
                     <Row style={noBackground}>
                       <Card.Text style={noBackground}>
                         Let us help you plan your events, whether they are

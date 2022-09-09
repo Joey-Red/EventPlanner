@@ -267,3 +267,28 @@ $button-black-opaque: #2125297e;
 .footerLinks a:visited {
   color: $light;
 }
+
+// View Image
+.veFullContainer {
+  // position: relative;
+}
+.veBgImg {
+  background: url(../img/fun2.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  filter: brightness(80%);
+}
+.eViteHeader {
+  font-family: "Pacifico", cursive;
+}
+.eVite {
+  font-family: "Permanent Marker", cursive;
+  font-size: 1.6rem;
+}

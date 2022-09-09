@@ -46,7 +46,7 @@ function CustomNavbar() {
     >
       <Container>
         <Navbar.Brand>
-          <a href="/home">
+          <a href="/">
             <img
               src={logo}
               alt="Free Event Planner Logo"
@@ -73,7 +73,7 @@ function CustomNavbar() {
           </NavDropdown>
         </div>
         <div className="navItemContainer">
-          <Nav.Link href="/home" style={stingyStyles} className="navBarOption">
+          <Nav.Link href="/" style={stingyStyles} className="navBarOption">
             Home
           </Nav.Link>
         </div>
