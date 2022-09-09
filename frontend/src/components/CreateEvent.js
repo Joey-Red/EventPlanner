@@ -124,6 +124,7 @@ function CreateEvent() {
               <Card
                 style={{
                   background: "none",
+                  border: "solid #eb8276 1px",
                 }}
               >
                 {/* This is background vv */}
@@ -208,6 +209,7 @@ function CreateEvent() {
                         ></Form.Control>
                         <Button
                           variant="dark"
+                          style={{ border: "solid #eb8276 1px" }}
                           onClick={(e) => addToList(e.preventDefault())}
                         >
                           Add Admin
@@ -249,6 +251,7 @@ function CreateEvent() {
                         ></Form.Control>
                         <Button
                           className="mb-1"
+                          style={{ border: "solid #eb8276 1px" }}
                           variant="dark"
                           onClick={(e) => addToEmailList(e.preventDefault())}
                         >
@@ -299,8 +302,13 @@ function CreateEvent() {
                       </Row>
                       <Row>
                         <Button
-                          style={{ maxWidth: "fit-content" }}
                           variant="dark"
+                          style={{
+                            maxWidth: "fit-content",
+                            // background: "#eb8276",
+                            border: "solid #eb8276 1px",
+                            // color: "#212529",
+                          }}
                           onClick={(e) => postEvent(e)}
                         >
                           Thats it!

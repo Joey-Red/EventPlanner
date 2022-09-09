@@ -21,6 +21,12 @@ function CustomNavbar() {
     fontSize: "1rem",
     // alignSelf: "end",
   };
+  let soloStyles = {
+    color: "#ffffff",
+    fontSize: "1rem",
+    backgroundColor: "#2125297e",
+  };
+
   // let moreStyles = {
   //   fontFamily: "lemon_milkregular",
   //   textTransform: "uppercase",
@@ -40,30 +46,34 @@ function CustomNavbar() {
     >
       <Container>
         <Navbar.Brand>
-          <img
-            src={logo}
-            alt="Free Event Planner Logo"
-            style={{ maxHeight: "150px" }}
-          />
+          <a href="/home">
+            <img
+              src={logo}
+              alt="Free Event Planner Logo"
+              style={{ maxHeight: "150px" }}
+            />
+          </a>
         </Navbar.Brand>
         <div className="navItemContainer">
           <NavDropdown
             title="More Options"
             id="basic-nav-dropdown"
-            style={stingyStyles}
+            style={soloStyles}
             className="navBarOption"
           >
             <NavDropdown.Item href="http://localhost:3001/create_event">
               Plan Your next Event
             </NavDropdown.Item>
-            <NavDropdown.Item href="#">View Public Events</NavDropdown.Item>
+            <NavDropdown.Item href="/view_all_events">
+              View Public Events
+            </NavDropdown.Item>
             <NavDropdown.Item style={stingyStyles} href="#">
               <LogIn />
             </NavDropdown.Item>
           </NavDropdown>
         </div>
         <div className="navItemContainer">
-          <Nav.Link href="#" style={stingyStyles} className="navBarOption">
+          <Nav.Link href="/home" style={stingyStyles} className="navBarOption">
             Home
           </Nav.Link>
         </div>

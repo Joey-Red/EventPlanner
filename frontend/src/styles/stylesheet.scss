@@ -114,6 +114,8 @@ $button-black-opaque: #2125297e;
 .navBar {
   background-color: $button-black;
 }
+// .dropdown-menu.show
+// ^Style for dropdown links background
 .navItemContainer {
   border: 1px solid white;
   padding: 10px 8px 8px 8px;
@@ -164,8 +166,8 @@ $button-black-opaque: #2125297e;
   color: $light;
 }
 .ceCardBody {
-  // background: $button-black-opaque;
-  background: $primary-light-opaque;
+  background: $button-black-opaque;
+  // background: $primary-light-opaque;
   border-radius: 0.375rem;
 }
 .checkbox {
@@ -199,6 +201,25 @@ $button-black-opaque: #2125297e;
   grid-template-columns: repeat(2, 1fr);
   max-height: 894px;
   overflow: hidden;
+}
+.allPubEventContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  // max-height: 894px;
+  overflow: hidden;
+}
+.vaeImage {
+  background: url(../img/outdoorparty.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  filter: brightness(60%);
 }
 // Card Styles
 #singleCard {

@@ -12,7 +12,7 @@ function App() {
       <AttentionGetter />
       <Wave2 />
       <PublicDashboard />
-      <CustomFooter />
+      {/* <CustomFooter /> */}
     </div>
   );
 }

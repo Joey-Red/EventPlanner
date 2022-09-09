@@ -19,6 +19,9 @@ function AttentionGetter() {
     // F0F0ED
     background: "#F0F0ED",
   };
+  let rerout = () => {
+    window.location = "/create_event";
+  };
   return (
     <div style={{ position: "relative" }}>
       <div className="agImage"></div>
@@ -83,7 +86,9 @@ function AttentionGetter() {
                         </ListGroup.Item>
                         <ListGroup.Item as="li" style={noBackground}>
                           Have fun at your event! Are you ready to{" "}
-                          <Button variant="dark">Get Started</Button>
+                          <Button variant="dark" onClick={() => rerout()}>
+                            Get Started
+                          </Button>
                         </ListGroup.Item>
                       </ListGroup>
                     </Row>
