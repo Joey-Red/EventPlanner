@@ -36,9 +36,72 @@ function CreateEvent() {
   let [eventTime, setEventTime] = useState("");
   let [eventDate, setEventDate] = useState("");
 
+  // Field Validation States
+  let [titleValid, setTitleValid] = useState(false);
+  let [planValid, setPlanValid] = useState(false);
+  let [dateValid, setDateValid] = useState(false);
+  let [timeValid, setTimeValid] = useState(false);
+  let [disableSubmit, setDisableSubmit] = useState(true);
+
+  let [todaysDate, setTodaysDate] = useState("");
+
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.value);
   const authState = useSelector((auth) => auth.authState.value);
+
+  useEffect(() => {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    let mm = today.getMonth() + 1; // Months start at 0!
+    let dd = today.getDate();
+
+    if (dd < 10) dd = "0" + dd;
+    if (mm < 10) mm = "0" + mm;
+    const formattedToday = yyyy + "-" + mm + "-" + dd;
+
+    setTodaysDate(formattedToday);
+    if (eventTitle.length > 0) {
+      setTitleValid(true);
+    } else if (eventTitle.length <= 0) {
+      setTitleValid(false);
+    }
+    if (eventDescription.length > 0) {
+      setPlanValid(true);
+    } else if (eventDescription.length <= 0) {
+      setPlanValid(false);
+    }
+    if (eventTime.length > 0) {
+      setTimeValid(true);
+    } else if (eventTime.length <= 0) {
+      setTimeValid(false);
+    }
+
+    if (eventDate.length > 0 && formattedToday < eventDate) {
+      setDateValid(true);
+    } else if (eventDate.length <= 0 || formattedToday > eventDate) {
+      setDateValid(false);
+    }
+    if (
+      titleValid === true &&
+      planValid === true &&
+      dateValid === true &&
+      timeValid === true
+    ) {
+      setDisableSubmit(false);
+    } else {
+      setDisableSubmit(true);
+    }
+  }, [
+    dateValid,
+    planValid,
+    timeValid,
+    eventTitle,
+    eventTime,
+    eventDate,
+    eventDescription,
+    titleValid,
+  ]);
+
   // Check log in, if bad, send home
   useEffect(
     (res) => {
@@ -118,14 +181,12 @@ function CreateEvent() {
           >
             <h1 className="ceHeader">Create Event</h1>
             <Form className="ceFormContainer">
-              {/* This is border vv */}
               <Card
                 style={{
                   background: "none",
                   border: "solid #eb8276 1px",
                 }}
               >
-                {/* This is background vv */}
                 <Card.Body className="ceCardBody" style={{ padding: "30px" }}>
                   <Row className="mb-1">
                     <Card.Text className="ceInsideHeader">
@@ -301,13 +362,9 @@ function CreateEvent() {
                       <Row>
                         <Button
                           variant="dark"
-                          style={{
-                            maxWidth: "fit-content",
-                            // background: "#eb8276",
-                            border: "solid #eb8276 1px",
-                            // color: "#212529",
-                          }}
                           onClick={(e) => postEvent(e)}
+                          id="submitButton"
+                          disabled={disableSubmit}
                         >
                           Thats it!
                         </Button>

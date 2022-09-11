@@ -8,6 +8,7 @@ import FrontRouter from "./FrontRouter";
 import authReducer from "./features/authState";
 import "./styles/stylesheet.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+/* global google */
 
 const store = configureStore({
   reducer: {

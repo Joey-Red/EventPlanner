@@ -114,8 +114,7 @@ $button-black-opaque: #2125297e;
 .navBar {
   background-color: $button-black;
 }
-// .dropdown-menu.show
-// ^Style for dropdown links background
+
 .navItemContainer {
   border: 1px solid white;
   padding: 10px 8px 8px 8px;
@@ -169,6 +168,14 @@ $button-black-opaque: #2125297e;
   background: $button-black-opaque;
   // background: $primary-light-opaque;
   border-radius: 0.375rem;
+}
+#submitButton {
+  max-width: fit-content;
+  border: solid #eb8276 1px;
+}
+#submitButton:disabled {
+  background: #ff6961;
+  color: $button-black;
 }
 .checkbox {
   color: $light;
@@ -229,12 +236,7 @@ $button-black-opaque: #2125297e;
   color: $light;
   background-color: $light-opaque;
 }
-.eventTitle {
-  // color: $primary-light;
-}
-// .pubEventFullContainer {
-//
-// }
+
 .peImage {
   // background: url("");
   background: url(../img/peopleAndTent.jpg) no-repeat center center fixed;
@@ -260,6 +262,16 @@ $button-black-opaque: #2125297e;
   justify-content: space-between;
   width: 100%;
   padding: 20px 40px 20px 40px;
+}
+.linkBody .row div {
+  display: flex;
+  justify-content: center;
+}
+.socialLink a {
+  color: $button-black;
+}
+.socialLink a:visited {
+  color: $button-black;
 }
 .aboutUs,
 .aboutUsUnder,

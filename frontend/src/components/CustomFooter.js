@@ -1,12 +1,21 @@
 import React from "react";
-import { Row, Col, Navbar } from "react-bootstrap";
 import logo from "../img/FEPCircle.png";
+import CustomModal from "./CustomModal";
+import PrivacyModal from "./PrivacyModal";
+import TermsOfUseModal from "./TermsOfUseModal";
+import ContactModal from "./ContactModal";
+import NavigationModal from "./NavigationModal";
+import SocialsModal from "./SocialsModal";
+
+import { Row, Col, Navbar } from "react-bootstrap";
+
 function CustomFooter() {
   let stackLinks = {
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
   };
+
   return (
     <>
       <Navbar
@@ -19,42 +28,35 @@ function CustomFooter() {
           <Col style={stackLinks}>
             <Row>
               <section>
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  data-toggle="modal"
-                  data-target="#exampleModalCenter"
-                >
-                  Launch demo modal
-                </button>
+                <CustomModal />
               </section>
             </Row>
             <Row>
               <section>
                 {" "}
-                <a href="#">Privacy Policy</a>
+                <PrivacyModal />
               </section>
             </Row>
             <Row>
               <section>
-                <a href="#">Terms of Use</a>
+                <TermsOfUseModal />
               </section>
             </Row>
           </Col>
           <Col style={stackLinks}>
             <Row>
               <section>
-                <a href="#">Contact</a>
+                <ContactModal />
               </section>
             </Row>
             <Row>
               <section>
-                <a href="#">Navigation</a>
+                <NavigationModal />
               </section>
             </Row>
             <Row>
               <section>
-                <a href="#">Socials</a>
+                <SocialsModal />
               </section>
             </Row>
           </Col>
@@ -67,13 +69,15 @@ function CustomFooter() {
             <Row>
               <section>
                 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-                  Important Link
+                  Please don't click this
                 </a>
               </section>
             </Row>
             <Row>
               <section>
-                <a href="#">Get Started</a>
+                <>
+                  <a href="/create_event">Get Started</a>
+                </>
               </section>
             </Row>
           </Col>
@@ -100,47 +104,6 @@ function CustomFooter() {
           />
         </div>
       </Navbar>
-      {/* MODAL ATTEMPT */}
-      <div
-        class="modal fade"
-        id="exampleModalCenter"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">
-                Modal title
-              </h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">...</div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="button" class="btn btn-primary">
-                Save changes
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* MODAL ATTEMPT */}
     </>
   );
 }

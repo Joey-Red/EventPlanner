@@ -87,14 +87,18 @@ function LogIn() {
       theme: "outline",
       size: "large",
     });
-  }, [handleCallbackResponse]);
+  }, []);
 
   return (
     <>
-      <div id="signInDiv"></div>
+      <div id="signInDiv" style={{ background: "none" }}></div>
       {authState === true ? (
         <>
-          <div className="signOutLink" onClick={(e) => handleSignOut(e)}>
+          <div
+            className="signOutLink"
+            onClick={(e) => handleSignOut(e)}
+            style={{ color: "#ffffff", textDecoration: "underline" }}
+          >
             Sign Out
           </div>{" "}
         </>

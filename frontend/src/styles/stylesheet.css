@@ -118,6 +118,18 @@
   border-radius: 0.375rem;
 }
 
+#submitButton {
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  border: solid #eb8276 1px;
+}
+
+#submitButton:disabled {
+  background: #ff6961;
+  color: #212529;
+}
+
 .checkbox {
   color: #ffffff;
   font-size: 1.1rem;
@@ -195,6 +207,19 @@
   justify-content: space-between;
   width: 100%;
   padding: 20px 40px 20px 40px;
+}
+
+.linkBody .row div {
+  display: flex;
+  justify-content: center;
+}
+
+.socialLink a {
+  color: #212529;
+}
+
+.socialLink a:visited {
+  color: #212529;
 }
 
 .aboutUs,
