@@ -95,7 +95,8 @@ function ViewEvent() {
                     {post.eventDescription}
                   </Card.Text>
                   <Card.Text className="eVite">
-                    {post.eventTitle} will be held on "DATE" at "TIME"
+                    {post.eventTitle} will be held on {post.eventDate} at{" "}
+                    {post.eventTime}
                   </Card.Text>
                   {post.eventUpdatePosts.length > 0 ? (
                     <>{post.eventUpdatePosts}</>

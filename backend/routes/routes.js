@@ -67,10 +67,11 @@ router.post("/create-event", (req, res, next) => {
     publicStatus: req.body.publicStatus,
     eventDate: req.body.eventDate,
     eventTime: req.body.eventTime,
-  }).save((err) => {
+  }).save((err, data) => {
     if (err) {
       return next(err);
     }
+    res.json(data);
   });
   // .then(() => {
   User.findOneAndUpdate(
@@ -78,9 +79,7 @@ router.post("/create-event", (req, res, next) => {
     {
       $inc: { numEvents: +1 },
     },
-    function (err, docs) {
-      res.json(docs);
-    }
+    function (err, docs) {}
   );
   // });
 });
