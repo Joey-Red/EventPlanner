@@ -1,17 +1,5 @@
 import React from "react";
-import {
-  Button,
-  Alert,
-  Breadcrumb,
-  Card,
-  Form,
-  Container,
-  Row,
-  Col,
-  Nav,
-  NavDropdown,
-  Navbar,
-} from "react-bootstrap";
+import { Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
 import LogIn from "./LogIn";
 import logo from "../img/FEPHoriz.png";
 
@@ -27,12 +15,6 @@ function CustomNavbar() {
     backgroundColor: "#2125297e",
   };
 
-  // let moreStyles = {
-  //   fontFamily: "lemon_milkregular",
-  //   textTransform: "uppercase",
-  //   color: "#ffffff",
-  //   fontSize: "1rem",
-  // };
   return (
     <Navbar
       className="navBar"

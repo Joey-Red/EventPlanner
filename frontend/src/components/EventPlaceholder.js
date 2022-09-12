@@ -1,29 +1,16 @@
 import React from "react";
-import {
-  Button,
-  Alert,
-  Breadcrumb,
-  Card,
-  Form,
-  Container,
-  Row,
-  Col,
-} from "react-bootstrap";
+import { Button, Card, Container, Row, Col } from "react-bootstrap";
 function EventPlaceholder(props) {
   let {
-    emailRegistry,
-    eventAdmins,
     eventDescription,
-    dateCreated,
     eventTitle,
     eventCreator,
     hostEmail,
-    eventUpdatePosts,
-    loaded,
     postId,
+    eventDate,
+    eventTime,
   } = props;
   let rerout = (e) => {
-    console.log(postId);
     window.location = `/view_event/${postId}`;
   };
   return (
@@ -31,21 +18,16 @@ function EventPlaceholder(props) {
       <Card
         className="mb-3"
         id="singleCard"
-        style={{ maxHeight: "234px", minHeight: "282px", zIndex: "99999" }}
+        style={{ minHeight: "328px", maxHeight: "328px", zIndex: "99999" }}
       >
         <Card.Body>
           <Card.Title className="eventTitle">{eventTitle}</Card.Title>
           <Col>
-            <Row>
+            <Card.Text>
               <Card.Text>{eventDescription}</Card.Text>
-            </Row>
-            {eventAdmins.length > 0 ? (
-              <Row>
-                <Card.Text>Event Admin(s): {eventAdmins}</Card.Text>
-              </Row>
-            ) : (
-              <></>
-            )}
+              <Card.Text>{eventDate}</Card.Text>
+              <Card.Text>{eventTime}</Card.Text>
+            </Card.Text>
             <Row>
               <Card.Text>Hosted By: {eventCreator}</Card.Text>
             </Row>
@@ -57,10 +39,7 @@ function EventPlaceholder(props) {
         <Card.Body
           style={{
             marginBottom: "0",
-            // color: "#5F7358",
             color: "#CBEAC0",
-            // textTransform: "uppercase",
-            // "#636464"
           }}
         >
           This event is open to the public!

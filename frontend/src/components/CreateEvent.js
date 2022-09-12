@@ -9,16 +9,11 @@ import TopWave from "./TopWave";
 import {
   Button,
   Alert,
-  Breadcrumb,
   Card,
   Form,
   Container,
   Row,
   Col,
-  Nav,
-  NavDropdown,
-  Navbar,
-  ListGroup,
   InputGroup,
 } from "react-bootstrap";
 function CreateEvent() {
@@ -337,7 +332,7 @@ function CreateEvent() {
                         </Container>
                       </Row>
                       <Row className="mb-1">
-                        <Form>
+                        <div>
                           <div key={`default-checkbox`} className="mb-1">
                             <Form.Check
                               type="checkbox"
@@ -348,7 +343,7 @@ function CreateEvent() {
                               onChange={handleChange}
                             />
                           </div>
-                        </Form>
+                        </div>
                       </Row>
                       <Row>
                         {alert ? (

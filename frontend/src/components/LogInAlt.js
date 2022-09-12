@@ -1,32 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import jwt_decode from "jwt-decode";
 import Axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { login, logout } from "../features/user";
 import { authUser } from "../features/authState";
-import { useNavigate } from "react-router-dom";
-import {
-  Button,
-  Alert,
-  Breadcrumb,
-  Card,
-  Form,
-  Container,
-  Row,
-  Col,
-  Nav,
-  NavDropdown,
-  Navbar,
-} from "react-bootstrap";
+
 function LogIn() {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.value);
   const authState = useSelector((auth) => auth.authState.value);
-  // console.log(user);
 
   function handleCallbackResponse(response) {
-    // console.log("Encoded JWT ID Token: " + response.credential);
     let userObject = jwt_decode(response.credential);
     dispatch(login(userObject));
     dispatch(authUser(true));

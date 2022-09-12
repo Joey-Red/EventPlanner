@@ -2,18 +2,7 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import EventPlaceholder from "./EventPlaceholder";
-// import MidWave from "./MidWave";
-import {
-  Button,
-  Alert,
-  Breadcrumb,
-  Card,
-  Form,
-  Container,
-  Row,
-  Col,
-  Spinner,
-} from "react-bootstrap";
+import { Container, Spinner } from "react-bootstrap";
 
 function ViewAllEvents() {
   const [listOfPosts, setListOfPosts] = useState([{}]);
@@ -29,11 +18,9 @@ function ViewAllEvents() {
         console.log(err);
       });
   }, []);
-  //  style={{ paddingTop: "255px" }}
   return (
     <div style={{ position: "relative", zIndex: "9997" }}>
       {" "}
-      {/* <MidWave /> */}
       <div className="vaeImage"></div>
       <Container
         className="pubEventFullContainer"
@@ -64,26 +51,14 @@ function ViewAllEvents() {
                         eventUpdatePosts={post.eventUpdatePosts}
                         hostEmail={post.hostEmail}
                         postId={post._id}
-                        // Date
-                        // Time
+                        eventDate={post.eventDate}
+                        eventTime={post.eventTime}
                       />
                     </div>
                   </div>
                 );
               })}
             </Container>
-            {/* <Container>
-              <Container>
-                {" "}
-                <Button
-                  variant="dark"
-                  className="mb-3"
-                  style={{ width: "100%" }}
-                >
-                  View More Public Events
-                </Button>
-              </Container>
-            </Container> */}
           </>
         ) : (
           <Container>

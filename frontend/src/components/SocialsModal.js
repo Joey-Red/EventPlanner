@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import Button from "react-bootstrap/Button";
 import { Col, Row, Modal, Button, Container } from "react-bootstrap";
 function SocialsModal() {
   const [show, setShow] = useState(false);

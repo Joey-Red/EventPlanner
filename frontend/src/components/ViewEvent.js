@@ -1,26 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-import { v4 as uuidv4 } from "uuid";
-import EventPlaceholder from "./EventPlaceholder";
 import TopWave from "./TopWave";
 import logo from "../img/FEPCircle.png";
-
-// import MidWave from "./MidWave";
-import {
-  Button,
-  Alert,
-  Breadcrumb,
-  Card,
-  Form,
-  Container,
-  Row,
-  Col,
-  Spinner,
-} from "react-bootstrap";
+import jwt_decode from "jwt-decode";
+import { Button, Card, Container, Row, Badge } from "react-bootstrap";
 function ViewEvent() {
   let [post, setPost] = useState({});
   let [postLoaded, setPostLoaded] = useState(false);
   let [eventId, setEventId] = useState("");
+  let [currUser, setCurrUser] = useState({});
+  let [showLink, setShowLink] = useState(true);
+  let [showCopied, setShowCopied] = useState(false);
   let centerEverything = {
     display: "flex",
     margin: "0px auto 0px auto",
@@ -44,23 +34,30 @@ function ViewEvent() {
     color: "#ffffff",
   };
   useEffect(() => {
+    let userObject = jwt_decode(localStorage.getItem("user"));
+    setCurrUser(userObject);
     let windowLoc = window.location.href;
     let juice = windowLoc.split("/");
-    // let eventId = juice[4];
     setEventId(juice[4]);
     console.log("eventId: ", eventId);
     if (eventId !== "") {
       fetch();
     }
   }, [eventId]);
+  let copy = () => {
+    navigator.clipboard.writeText(window.location.href);
+    setShowCopied(true);
+    timer();
+  };
+  let timer = () => {
+    setTimeout(() => {
+      setShowCopied(false);
+    }, 3000);
+  };
   let fetch = () => {
     Axios.get(`http://localhost:8080/retrieve_post/${eventId}`, {
       headers: { eventId: eventId },
     })
-
-      // Get url from url bar
-      // check if it exists
-      // if not, 404 event not found :(
       .then((res) => {
         setPost(res.data);
         setPostLoaded(true);
@@ -69,6 +66,10 @@ function ViewEvent() {
       .catch(function (err) {
         console.log(err);
       });
+  };
+
+  let close = () => {
+    setShowLink(false);
   };
 
   return (
@@ -82,6 +83,75 @@ function ViewEvent() {
             <Container style={centerEverythingContainer}>
               <Card style={{ minHeight: "50vh", background: "none" }}>
                 <Card.Body style={centerEverything}>
+                  {currUser.email === post.hostEmail && showLink ? (
+                    <Container
+                      style={{
+                        color: "black",
+                        background: "none",
+                      }}
+                    >
+                      <Card
+                        style={{
+                          backgroundColor: "rgba(108, 122, 137, 0.4)",
+                          color: "#ffffff",
+                        }}
+                      >
+                        <Card.Body>
+                          <button
+                            style={{
+                              position: "absolute",
+                              top: "4px",
+                              right: "4px",
+                              border: "none",
+                              background: "none",
+                            }}
+                            onClick={() => close()}
+                          >
+                            &#10006;
+                          </button>
+                          <Row
+                            style={{
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              color: "#FF6961",
+                            }}
+                          >
+                            Shareable Link!
+                          </Row>
+                          <Row
+                            style={{
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              color: "#FF6961",
+                            }}
+                          >
+                            {window.location.href}{" "}
+                            <Button
+                              style={{
+                                maxWidth: "fit-content",
+                                marginLeft: "8px",
+                              }}
+                              variant="dark"
+                              onClick={() => copy()}
+                            >
+                              Copy to Clipboard
+                            </Button>
+                            {showCopied ? (
+                              <>
+                                <Badge bg="secondary">Copied!</Badge>
+                              </>
+                            ) : (
+                              <></>
+                            )}
+                          </Row>
+                        </Card.Body>
+                      </Card>
+                    </Container>
+                  ) : (
+                    <></>
+                  )}
                   <Card.Text
                     className="eViteHeader"
                     style={{ fontSize: "2rem" }}
@@ -98,11 +168,6 @@ function ViewEvent() {
                     {post.eventTitle} will be held on {post.eventDate} at{" "}
                     {post.eventTime}
                   </Card.Text>
-                  {post.eventUpdatePosts.length > 0 ? (
-                    <>{post.eventUpdatePosts}</>
-                  ) : (
-                    <></>
-                  )}
                   <Card.Text className="eVite">
                     For further information, contact {post.eventCreator} at{" "}
                     {post.hostEmail}

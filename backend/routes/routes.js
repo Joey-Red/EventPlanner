@@ -83,6 +83,7 @@ router.post("/create-event", (req, res, next) => {
   );
   // });
 });
+
 router.get("/retrieve_posts", (req, res) => {
   Event.find({ publicStatus: true }, (err, result) => {
     if (err) {

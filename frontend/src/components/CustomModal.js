@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import Button from "react-bootstrap/Button";
 import { Row, Col, Modal, Button } from "react-bootstrap";
 function CustomModal() {
   const [show, setShow] = useState(false);
@@ -25,9 +24,6 @@ function CustomModal() {
         show={show}
         onHide={handleClose}
         style={{
-          // marginTop: "calc(50% + 500px)",
-          // position: "absolute",
-          // bottom: "0",
           zIndex: "999999999999999",
         }}
         aria-labelledby="contained-modal-title-vcenter"

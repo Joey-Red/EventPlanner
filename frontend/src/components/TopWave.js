@@ -1,6 +1,4 @@
 import React from "react";
-// import calander from "../img/calander.png";
-import pencil from "../img/pencil.png";
 function Waves() {
   return (
     <div
@@ -13,11 +11,6 @@ function Waves() {
         pointerEvents: "none",
       }}
     >
-      {/* <img
-        src={pencil}
-        alt="pencil"
-        style={{ position: "absolute", height: "200px", right: "20%" }}
-      /> */}
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
           fill="#212529"

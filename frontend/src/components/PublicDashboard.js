@@ -3,17 +3,7 @@ import Axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import EventPlaceholder from "./EventPlaceholder";
 import MidWave from "./MidWave";
-import {
-  Button,
-  Alert,
-  Breadcrumb,
-  Card,
-  Form,
-  Container,
-  Row,
-  Col,
-  Spinner,
-} from "react-bootstrap";
+import { Button, Container, Spinner } from "react-bootstrap";
 
 function PublicDashboard() {
   const [listOfPosts, setListOfPosts] = useState([{}]);
@@ -27,7 +17,6 @@ function PublicDashboard() {
       })
       .catch(function (err) {});
   }, []);
-  //  style={{ paddingTop: "255px" }}
   let rerout = () => {
     window.location = "/view_all_events";
   };
@@ -67,6 +56,8 @@ function PublicDashboard() {
                         eventUpdatePosts={post.eventUpdatePosts}
                         hostEmail={post.hostEmail}
                         postId={post._id}
+                        eventTime={post.eventTime}
+                        eventDate={post.eventDate}
                       />
                     </div>
                   </div>
@@ -75,7 +66,6 @@ function PublicDashboard() {
             </Container>
             <Container>
               <Container>
-                {" "}
                 <Button
                   variant="dark"
                   className="mb-3"

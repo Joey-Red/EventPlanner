@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-// import Button from "react-bootstrap/Button";
-import { Row, Col, Modal, Button, Container } from "react-bootstrap";
+import { Row, Modal, Button, Container } from "react-bootstrap";
 function TermsOfUseModal() {
   const [show, setShow] = useState(false);
 

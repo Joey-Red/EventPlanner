@@ -1,18 +1,5 @@
 import React from "react";
-import {
-  Button,
-  Alert,
-  Breadcrumb,
-  Card,
-  Form,
-  Container,
-  Row,
-  Col,
-  Nav,
-  NavDropdown,
-  Navbar,
-  ListGroup,
-} from "react-bootstrap";
+import { Button, Card, Form, Container, Row, ListGroup } from "react-bootstrap";
 function AttentionGetter() {
   let noBackground = {
     background: "#F0F0ED",
@@ -20,7 +7,6 @@ function AttentionGetter() {
   };
   let noBackgroundForm = {
     background: "#F0F0ED",
-    // padding: "12px",
     borderRadius: "0.375rem",
   };
   let noBackgroundBody = {
@@ -35,7 +21,6 @@ function AttentionGetter() {
       <div
         style={{
           position: "relative",
-          // paddingTop: "255px",
           paddingTop: "255px",
           paddingBottom: "50px",
         }}
@@ -43,7 +28,6 @@ function AttentionGetter() {
         <div
           style={{
             position: "absolute",
-            // bottom: "-60px",
             bottom: "0px",
             left: "0",
             right: "0",
@@ -51,7 +35,6 @@ function AttentionGetter() {
         >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
             <path
-              // fill="#eb8276"
               fill="#212529"
               fillOpacity="1"
               d="M0,96L60,117.3C120,139,240,181,360,186.7C480,192,600,160,720,138.7C840,117,960,107,1080,101.3C1200,96,1320,96,1380,96L1440,96L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
