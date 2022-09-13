@@ -31,7 +31,7 @@ function CustomNavbar() {
     >
       <Container>
         <Navbar.Brand>
-          <a href="/">
+          <a href="https://joey-red.github.io/EventPlanner/">
             <img
               src={logo}
               alt="Free Event Planner Logo"
@@ -46,10 +46,10 @@ function CustomNavbar() {
             style={soloStyles}
             className="navBarOption"
           >
-            <NavDropdown.Item href="http://localhost:3001/create_event">
+            <NavDropdown.Item href="https://joey-red.github.io/EventPlanner/create_event">
               Plan Your next Event
             </NavDropdown.Item>
-            <NavDropdown.Item href="/view_all_events">
+            <NavDropdown.Item href="https://joey-red.github.io/EventPlanner/view_all_events">
               View Public Events
             </NavDropdown.Item>
             <NavDropdown.Item style={stingyStyles} href="#">
@@ -59,7 +59,7 @@ function CustomNavbar() {
         </div>
         <div className="navItemContainer">
           <Nav.Link
-            href="http://localhost:3001/view_all_events"
+            href="https://joey-red.github.io/EventPlanner/view_all_events"
             style={stingyStyles}
             className="navBarOption"
           >
@@ -67,14 +67,18 @@ function CustomNavbar() {
           </Nav.Link>
         </div>
         <div className="navItemContainer">
-          <Nav.Link href="/" style={stingyStyles} className="navBarOption">
+          <Nav.Link
+            href="https://joey-red.github.io/EventPlanner/"
+            style={stingyStyles}
+            className="navBarOption"
+          >
             Home
           </Nav.Link>
         </div>
         <div className="navItemContainer special">
           {authState === true ? (
             <Nav.Link
-              href="http://localhost:3001/create_event"
+              href="https://joey-red.github.io/EventPlanner/create_event"
               style={stingyStyles}
               className="navBarOption"
             >

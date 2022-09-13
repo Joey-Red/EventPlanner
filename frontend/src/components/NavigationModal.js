@@ -36,17 +36,21 @@ function NavigationModal() {
           <Col>
             <Row>
               <section>
-                <a href="/">Home</a>
+                <a href="https://joey-red.github.io/EventPlanner/">Home</a>
               </section>
             </Row>
             <Row>
               <section>
-                <a href="/create_event">Create Event</a>
+                <a href="https://joey-red.github.io/EventPlanner/create_event">
+                  Create Event
+                </a>
               </section>
             </Row>
             <Row>
               <section>
-                <a href="/view_all_events">View All Public Events</a>
+                <a href="https://joey-red.github.io/EventPlanner/view_all_events">
+                  View All Public Events
+                </a>
               </section>
             </Row>
           </Col>

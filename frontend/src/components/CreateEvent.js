@@ -115,12 +115,12 @@ function CreateEvent() {
           } else {
             console.log("triggered");
             dispatch(authUser(false));
-            window.location.href = "http://localhost:3001/";
+            window.location.href = "https://joey-red.github.io/EventPlanner/";
           }
         })
         .catch(function (error) {
           dispatch(authUser(false));
-          window.location.href = "http://localhost:3001/";
+          window.location.href = "https://joey-red.github.io/EventPlanner/";
         });
     },
     [authState, dispatch]
