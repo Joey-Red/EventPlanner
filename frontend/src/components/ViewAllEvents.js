@@ -9,8 +9,8 @@ function ViewAllEvents() {
   const [listOfPosts, setListOfPosts] = useState([{}]);
   const [postsLoaded, setPostsLoaded] = useState(false);
   const [remainingPosts, setRemainingPosts] = useState(0);
-  const [placeholders, setPlaceholders] = useState([{}]);
-  let [filteredPost, setFilteredPost] = useState(3);
+  const [placeholders, setPlaceholders] = useState([]);
+  // let [filteredPost, setFilteredPost] = useState(3);
   let [verifiedPost, setVerifiedPost] = useState([]);
   let [postsFiltered, setPostsFiltered] = useState(false);
   let [fillPlaceHolders, setFillPlaceHolders] = useState(false);
@@ -40,22 +40,35 @@ function ViewAllEvents() {
   }, []);
 
   useEffect(() => {
-    for (let i = 0; i < filteredPost && i <= 5; i++) {
-      placeholders.push({ key: "value" });
-    }
-  }, []);
-
-  useEffect(() => {
+    // Base 4 placeholders (0 index)
+    let filteredPost = 4;
     listOfPosts.forEach((post) => {
+      console.log(post);
+      // check each post, compare date to todays date
+      let testDateString = "2023-09-20";
       if (post.eventDate > todaysDate) {
         verifiedPost.push(post);
-        setFilteredPost(filteredPost--);
+        // setVerifiedPost({ ...verifiedPost, post });
+        // console.log(verifiedPost);
+        // date good? add to array
+        filteredPost--;
+        //reduce number of placeholders
+        // console.log(filteredPost);
       }
     });
+    // Good posts found, show on screen
     setPostsFiltered(true);
-    if (filteredPost > 0) {
-      setFillPlaceHolders(true);
+    // if (filteredPost > 0) {
+    // If placeholders needed, add them to array
+    for (let i = 0; i < filteredPost; i++) {
+      // console.log(filteredPost);
+      // placeholders.push({ key: "value" });
+      setPlaceholders([...placeholders, { key: "value" }]);
+      // console.log(placeholders);
     }
+    // # placeholders set, fill them
+    setFillPlaceHolders(true);
+    // }
   }, [todaysDate, listOfPosts]);
 
   return (
@@ -79,7 +92,7 @@ function ViewAllEvents() {
             <Container fluid className="allPubEventContainer">
               {postsFiltered ? (
                 <>
-                  {listOfPosts.map((post) => {
+                  {verifiedPost.map((post) => {
                     return (
                       <div className="postContainerContainer" key={uuidv4()}>
                         <div className="singlePost">
