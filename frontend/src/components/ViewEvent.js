@@ -11,6 +11,7 @@ function ViewEvent() {
   let [currUser, setCurrUser] = useState({});
   let [showLink, setShowLink] = useState(true);
   let [showCopied, setShowCopied] = useState(false);
+  let [noEventFound, setNoEventFound] = useState(false);
   let centerEverything = {
     display: "flex",
     margin: "0px auto 0px auto",
@@ -59,9 +60,14 @@ function ViewEvent() {
       headers: { eventId: eventId },
     })
       .then((res) => {
-        setPost(res.data);
-        setPostLoaded(true);
-        console.log("res.data: ", res);
+        if (res.data.name === "CastError") {
+          setNoEventFound(true);
+          console.log(noEventFound);
+        } else {
+          setPost(res.data);
+          setPostLoaded(true);
+          setNoEventFound(false);
+        }
       })
       .catch(function (err) {
         console.log(err);
@@ -76,7 +82,7 @@ function ViewEvent() {
     <div className="veFullContainer" style={{ paddingBottom: "150px" }}>
       <div className="veBgImg"></div>
       <TopWave />
-      {postLoaded ? (
+      {postLoaded && !noEventFound ? (
         <>
           return (
           <div style={{ marginTop: "267px" }}>
@@ -190,6 +196,43 @@ function ViewEvent() {
             </Container>
           </div>
         </>
+      ) : (
+        <></>
+      )}
+      {noEventFound ? (
+        <div style={{ marginTop: "267px" }}>
+          <Container style={centerEverythingContainer}>
+            <Card style={{ minHeight: "50vh", background: "none" }}>
+              <Card.Body style={centerEverything}>
+                <Card.Text className="eViteHeader" style={{ fontSize: "2rem" }}>
+                  We couldn't find that event.
+                </Card.Text>
+                <Card.Text className="eVite">
+                  Why don't you check out some others?
+                </Card.Text>
+                <Card.Text className="eVite">{post.eventDescription}</Card.Text>
+                <Card.Text className="eVite">
+                  <a href="/view_all_events" className="otherEvents">
+                    Follow me!
+                  </a>
+                </Card.Text>
+                <img
+                  src={logo}
+                  alt="Free Event Planner Logo"
+                  style={{
+                    maxHeight: "90px",
+                    maxWidth: "93px",
+                    minHeight: "90px",
+                    minWidth: "93px",
+                    position: "absolute",
+                    bottom: "12px",
+                    right: "12px",
+                  }}
+                />
+              </Card.Body>
+            </Card>
+          </Container>
+        </div>
       ) : (
         <></>
       )}

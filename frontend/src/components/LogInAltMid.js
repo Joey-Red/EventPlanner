@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { login, logout } from "../features/user";
 import { authUser } from "../features/authState";
 
-function LogIn() {
+function LogInAltMid() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.value);
   const authState = useSelector((auth) => auth.authState.value);
@@ -17,8 +17,8 @@ function LogIn() {
         client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
         callback: handleCallbackResponse,
       });
-      google.accounts.id.renderButton(document.getElementById("signInDiv"), {
-        type: "button",
+      google.accounts.id.renderButton(document.getElementById("signInDivMid"), {
+        type: "icon",
         text: "signinwithgoogle",
         size: "medium",
       });
@@ -65,9 +65,10 @@ function LogIn() {
           const decodedUser = jwt_decode(checkUser);
           dispatch(login(decodedUser));
           dispatch(authUser(true));
-          document.getElementById("signInDiv").hidden = true;
+          document.getElementById("signInDivMid").hidden = true;
         } else {
           dispatch(authUser(false));
+          console.log(authState);
         }
       });
     },
@@ -76,16 +77,10 @@ function LogIn() {
 
   return (
     <>
-      <div id="signInDiv" style={{ marginTop: "-3px" }}></div>
+      <div id="signInDivMid" style={{ marginTop: "-3px" }}></div>
       {authState === true ? (
         <>
-          <div
-            className="signOutLink"
-            onClick={(e) => handleSignOut(e)}
-            style={{ color: "#ffffff", textDecoration: "underline" }}
-          >
-            Sign Out
-          </div>{" "}
+          <div style={{ color: "#77DD77" }}> &#10003; </div>
         </>
       ) : (
         <></>
@@ -94,4 +89,4 @@ function LogIn() {
   );
 }
 
-export default LogIn;
+export default LogInAltMid;

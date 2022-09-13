@@ -23,11 +23,9 @@ function EventPlaceholder(props) {
         <Card.Body>
           <Card.Title className="eventTitle">{eventTitle}</Card.Title>
           <Col>
-            <Card.Text>
-              <Card.Text>{eventDescription}</Card.Text>
-              <Card.Text>{eventDate}</Card.Text>
-              <Card.Text>{eventTime}</Card.Text>
-            </Card.Text>
+            <Card.Text>{eventDescription}</Card.Text>
+            <Card.Text>{eventDate}</Card.Text>
+            <Card.Text>{eventTime}</Card.Text>
             <Row>
               <Card.Text>Hosted By: {eventCreator}</Card.Text>
             </Row>

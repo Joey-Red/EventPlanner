@@ -1,9 +1,15 @@
 import React from "react";
 import { Button, Card, Form, Container, Row, ListGroup } from "react-bootstrap";
+import LogInAltMid from "./LogInAltMid";
 function AttentionGetter() {
   let noBackground = {
     background: "#F0F0ED",
     padding: "12px",
+  };
+  let noBackgroundAlt = {
+    background: "#F0F0ED",
+    padding: "12px",
+    display: "flex",
   };
   let noBackgroundForm = {
     background: "#F0F0ED",
@@ -68,8 +74,17 @@ function AttentionGetter() {
                         It's fast and simple.{" "}
                       </Card.Text>
                       <ListGroup as="ol" numbered style={noBackground}>
-                        <ListGroup.Item as="li" style={noBackground}>
-                          Sign in
+                        <ListGroup.Item as="li" style={noBackgroundAlt}>
+                          Sign in{" "}
+                          <div
+                            style={{
+                              marginLeft: "3px",
+                              display: "flex",
+                              alignSelf: "center",
+                            }}
+                          >
+                            <LogInAltMid />
+                          </div>
                         </ListGroup.Item>
                         <ListGroup.Item as="li" style={noBackground}>
                           Tell us about your event

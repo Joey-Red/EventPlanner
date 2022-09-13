@@ -1,7 +1,9 @@
 import React from "react";
 import { Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
 import LogIn from "./LogIn";
+import LogInAlt from "./LogInAlt";
 import logo from "../img/FEPHoriz.png";
+import { useSelector } from "react-redux";
 
 function CustomNavbar() {
   let stingyStyles = {
@@ -14,6 +16,7 @@ function CustomNavbar() {
     fontSize: "1rem",
     backgroundColor: "#2125297e",
   };
+  const authState = useSelector((auth) => auth.authState.value);
 
   return (
     <Navbar
@@ -23,7 +26,7 @@ function CustomNavbar() {
         top: "0",
         left: "0",
         right: "0",
-        zIndex: "99999",
+        zIndex: "9999",
       }}
     >
       <Container>
@@ -55,18 +58,31 @@ function CustomNavbar() {
           </NavDropdown>
         </div>
         <div className="navItemContainer">
+          <Nav.Link
+            href="http://localhost:3001/view_all_events"
+            style={stingyStyles}
+            className="navBarOption"
+          >
+            View Public Events
+          </Nav.Link>
+        </div>
+        <div className="navItemContainer">
           <Nav.Link href="/" style={stingyStyles} className="navBarOption">
             Home
           </Nav.Link>
         </div>
-        <div className="navItemContainer">
-          <Nav.Link
-            href="http://localhost:3001/create_event"
-            style={stingyStyles}
-            className="navBarOption"
-          >
-            Create Event
-          </Nav.Link>
+        <div className="navItemContainer special">
+          {authState === true ? (
+            <Nav.Link
+              href="http://localhost:3001/create_event"
+              style={stingyStyles}
+              className="navBarOption"
+            >
+              Create Event
+            </Nav.Link>
+          ) : (
+            <LogInAlt />
+          )}
         </div>
       </Container>
     </Navbar>

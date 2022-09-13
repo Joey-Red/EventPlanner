@@ -10,6 +10,20 @@ function LogIn() {
   const user = useSelector((state) => state.user.value);
   const authState = useSelector((auth) => auth.authState.value);
 
+  useEffect(() => {
+    /* global google */
+    if (google) {
+      google.accounts.id.initialize({
+        client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
+        callback: handleCallbackResponse,
+      });
+      google.accounts.id.renderButton(document.getElementById("signInDiv"), {
+        theme: "outline",
+        size: "large",
+      });
+    }
+  }, []);
+
   function handleCallbackResponse(response) {
     let userObject = jwt_decode(response.credential);
     dispatch(login(userObject));
@@ -26,9 +40,7 @@ function LogIn() {
         firstName: userObject.given_name,
         lastName: userObject.family_name,
         email: userObject.email,
-      }).then((res) => {
-        console.log(res);
-      });
+      }).then((res) => {});
     }
   }
 
@@ -53,25 +65,11 @@ function LogIn() {
           document.getElementById("signInDiv").hidden = true;
         } else {
           dispatch(authUser(false));
-          console.log(authState);
-          google.accounts.id.prompt();
         }
       });
     },
     [authState, dispatch]
   );
-
-  useEffect(() => {
-    /* global google */
-    google.accounts.id.initialize({
-      client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
-      callback: handleCallbackResponse,
-    });
-    google.accounts.id.renderButton(document.getElementById("signInDiv"), {
-      theme: "outline",
-      size: "large",
-    });
-  }, []);
 
   return (
     <>

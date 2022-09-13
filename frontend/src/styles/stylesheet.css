@@ -69,12 +69,19 @@
   border-radius: 0.375rem;
 }
 
+.special {
+  display: flex;
+  align-items: center;
+  max-height: 44px;
+}
+
 .signOutLink {
   color: black;
 }
 
 .navBarOption,
-#basic-nav-dropdown {
+#basic-nav-dropdown,
+.navSignIn {
   font-family: "lemon_milkregular";
   text-transform: uppercase;
 }
@@ -157,13 +164,14 @@
 .pubEventContainer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  max-height: 894px;
+  max-height: 680px;
   overflow: hidden;
 }
 
 .allPubEventContainer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  min-height: 894px;
   overflow: hidden;
 }
 
@@ -181,6 +189,21 @@
 #singleCard {
   color: #ffffff;
   background-color: rgba(0, 0, 0, 0.6);
+  overflow-y: scroll;
+}
+
+#singleCard::-webkit-scrollbar {
+  width: 12px;
+}
+
+#singleCard::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgb(200, 200, 200);
+  border-radius: 10px;
+}
+
+#singleCard::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #4c5454;
 }
 
 .peImage {
@@ -232,7 +255,7 @@
 .veBgImg {
   background: url(../img/welcome2.jpg) no-repeat center center fixed;
   background-size: cover;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
@@ -244,7 +267,12 @@
   font-family: "Pacifico", cursive;
 }
 
-.eVite {
+.eVite,
+.otherEvents {
   font-family: "Permanent Marker", cursive;
   font-size: 1.6rem;
+}
+
+.otherEvents:visited {
+  color: #ffffff;
 }/*# sourceMappingURL=stylesheet.css.map */

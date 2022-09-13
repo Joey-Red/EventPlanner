@@ -3,11 +3,19 @@ import Axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import EventPlaceholder from "./EventPlaceholder";
 import MidWave from "./MidWave";
+import EventPlaceholderEmpty from "./EventPlaceholderEmpty";
 import { Button, Container, Spinner } from "react-bootstrap";
 
 function PublicDashboard() {
   const [listOfPosts, setListOfPosts] = useState([{}]);
   const [postsLoaded, setPostsLoaded] = useState(false);
+  const [remainingPosts, setRemainingPosts] = useState(0);
+  const [placeholders, setPlaceholders] = useState([{}]);
+  const [todaysDate, setTodaysDate] = useState("");
+  let [filteredPost, setFilteredPost] = useState(3);
+  let [verifiedPost, setVerifiedPost] = useState([]);
+  let [postsFiltered, setPostsFiltered] = useState(false);
+  let [fillPlaceHolders, setFillPlaceHolders] = useState(false);
   // Fetch Posts
   useEffect(() => {
     Axios.get("http://localhost:8080/retrieve_posts")
@@ -15,11 +23,45 @@ function PublicDashboard() {
         setListOfPosts(res.data);
         setPostsLoaded(true);
       })
-      .catch(function (err) {});
+      .catch(function (err) {
+        console.log("whoops");
+      });
   }, []);
   let rerout = () => {
     window.location = "/view_all_events";
   };
+  useEffect(() => {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    let mm = today.getMonth() + 1; // Months start at 0!
+    let dd = today.getDate();
+
+    if (dd < 10) dd = "0" + dd;
+    if (mm < 10) mm = "0" + mm;
+    const formattedToday = yyyy + "-" + mm + "-" + dd;
+    setTodaysDate(formattedToday);
+  }, []);
+
+  useEffect(() => {
+    for (let i = 0; i < filteredPost && i <= 3; i++) {
+      placeholders.push({ key: "value" });
+    }
+  }, []);
+
+  useEffect(() => {
+    listOfPosts.forEach((post) => {
+      if (post.eventDate > todaysDate) {
+        verifiedPost.push(post);
+        setFilteredPost(filteredPost--);
+      }
+    });
+    setPostsFiltered(true);
+    console.log(filteredPost);
+    if (filteredPost > 0) {
+      setFillPlaceHolders(true);
+    }
+  }, [todaysDate, listOfPosts]);
+
   return (
     <div style={{ position: "relative", zIndex: "9997" }}>
       {" "}
@@ -42,27 +84,59 @@ function PublicDashboard() {
         {postsLoaded ? (
           <>
             <Container fluid className="pubEventContainer">
-              {listOfPosts.map((post) => {
-                return (
-                  <div className="postContainerContainer" key={uuidv4()}>
-                    <div className="singlePost">
-                      <EventPlaceholder
-                        eventTitle={post.eventTitle}
-                        eventDescription={post.eventDescription}
-                        eventCreator={post.eventCreator}
-                        dateCreated={post.dateCreated}
-                        emailRegistry={post.emailRegistry}
-                        eventAdmins={post.eventAdmins}
-                        eventUpdatePosts={post.eventUpdatePosts}
-                        hostEmail={post.hostEmail}
-                        postId={post._id}
-                        eventTime={post.eventTime}
-                        eventDate={post.eventDate}
-                      />
-                    </div>
-                  </div>
-                );
-              })}
+              {postsFiltered ? (
+                <>
+                  {verifiedPost.map((post) => {
+                    return (
+                      <div className="postContainerContainer" key={uuidv4()}>
+                        <div className="singlePost">
+                          <EventPlaceholder
+                            eventTitle={post.eventTitle}
+                            eventDescription={post.eventDescription}
+                            eventCreator={post.eventCreator}
+                            dateCreated={post.dateCreated}
+                            emailRegistry={post.emailRegistry}
+                            eventAdmins={post.eventAdmins}
+                            eventUpdatePosts={post.eventUpdatePosts}
+                            hostEmail={post.hostEmail}
+                            postId={post._id}
+                            eventTime={post.eventTime}
+                            eventDate={post.eventDate}
+                          />
+                        </div>
+                      </div>
+                    );
+                  })}
+                  {fillPlaceHolders ? (
+                    <>
+                      {placeholders.map((post) => {
+                        return (
+                          <div
+                            className="postContainerContainer"
+                            key={uuidv4()}
+                          >
+                            <div className="singlePost">
+                              <EventPlaceholderEmpty />;
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </>
+                  ) : (
+                    <>
+                      <Spinner animation="border" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                      </Spinner>
+                    </>
+                  )}
+                </>
+              ) : (
+                <>
+                  <Spinner animation="border" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                  </Spinner>
+                </>
+              )}
             </Container>
             <Container>
               <Container>

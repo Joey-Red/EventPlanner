@@ -6,7 +6,7 @@ import TermsOfUseModal from "./TermsOfUseModal";
 import ContactModal from "./ContactModal";
 import NavigationModal from "./NavigationModal";
 import SocialsModal from "./SocialsModal";
-
+import LogInAltFooter from "./LogInAltFooter";
 import { Row, Col, Navbar } from "react-bootstrap";
 
 function CustomFooter() {
@@ -63,7 +63,7 @@ function CustomFooter() {
           <Col style={stackLinks}>
             <Row>
               <section>
-                <a href="#">Log In</a>
+                <LogInAltFooter />
               </section>
             </Row>
             <Row>

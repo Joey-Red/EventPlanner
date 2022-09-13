@@ -7,7 +7,7 @@ function Waves() {
         top: "90px",
         left: "0",
         right: "0",
-        zIndex: "99997",
+        zIndex: "9998",
         pointerEvents: "none",
       }}
     >

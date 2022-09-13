@@ -17,11 +17,14 @@ function LogIn() {
         client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
         callback: handleCallbackResponse,
       });
-      google.accounts.id.renderButton(document.getElementById("signInDiv"), {
-        type: "button",
-        text: "signinwithgoogle",
-        size: "medium",
-      });
+      google.accounts.id.renderButton(
+        document.getElementById("signInDivFooter"),
+        {
+          type: "button",
+          text: "signinwithgoogle",
+          size: "medium",
+        }
+      );
     }
   }, []);
 
@@ -65,9 +68,10 @@ function LogIn() {
           const decodedUser = jwt_decode(checkUser);
           dispatch(login(decodedUser));
           dispatch(authUser(true));
-          document.getElementById("signInDiv").hidden = true;
+          document.getElementById("signInDivFooter").hidden = true;
         } else {
           dispatch(authUser(false));
+          console.log(authState);
         }
       });
     },
@@ -76,7 +80,7 @@ function LogIn() {
 
   return (
     <>
-      <div id="signInDiv" style={{ marginTop: "-3px" }}></div>
+      <div id="signInDivFooter" style={{ marginTop: "-3px" }}></div>
       {authState === true ? (
         <>
           <div

@@ -120,11 +120,19 @@ $button-black-opaque: #2125297e;
   padding: 10px 8px 8px 8px;
   border-radius: 0.375rem;
 }
+.special {
+  display: flex;
+  align-items: center;
+  max-height: 44px;
+  // font-size: 1.3rem;
+}
+
 .signOutLink {
   color: black;
 }
 .navBarOption,
-#basic-nav-dropdown {
+#basic-nav-dropdown,
+.navSignIn {
   font-family: "lemon_milkregular";
   text-transform: uppercase;
 }
@@ -206,13 +214,14 @@ $button-black-opaque: #2125297e;
 .pubEventContainer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  max-height: 894px;
+  max-height: 680px;
   overflow: hidden;
 }
 .allPubEventContainer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  // max-height: 894px;
+  min-height: 894px;
+
   overflow: hidden;
 }
 .vaeImage {
@@ -235,10 +244,23 @@ $button-black-opaque: #2125297e;
   // DBDBD6
   color: $light;
   background-color: $light-opaque;
+  overflow-y: scroll;
+}
+#singleCard::-webkit-scrollbar {
+  width: 12px;
 }
 
+#singleCard::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(200, 200, 200, 1);
+  box-shadow: inset 0 0 6px rgba(200, 200, 200, 1);
+  border-radius: 10px;
+}
+
+#singleCard::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: $primary-dark;
+}
 .peImage {
-  // background: url("");
   background: url(../img/peopleAndTent.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -290,7 +312,7 @@ $button-black-opaque: #2125297e;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
@@ -300,7 +322,12 @@ $button-black-opaque: #2125297e;
 .eViteHeader {
   font-family: "Pacifico", cursive;
 }
-.eVite {
+.eVite,
+.otherEvents {
   font-family: "Permanent Marker", cursive;
   font-size: 1.6rem;
+}
+
+.otherEvents:visited {
+  color: $light;
 }

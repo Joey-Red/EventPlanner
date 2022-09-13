@@ -88,17 +88,18 @@ router.get("/retrieve_posts", (req, res) => {
   Event.find({ publicStatus: true }, (err, result) => {
     if (err) {
       res.json(err);
+    } else {
+      res.json(result);
     }
-    res.json(result);
   });
 });
 router.get("/retrieve_post/:id", (req, res) => {
   Event.findOne({ _id: req.headers.eventid }, (err, result) => {
     if (err) {
       res.json(err);
+    } else {
+      res.json(result);
     }
-    console.log(result);
-    res.json(result);
   });
 });
 // Sign in with google and create account on site.
