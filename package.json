@@ -2,7 +2,11 @@
   "name": "EventPlanner",
   "version": "0.0.0",
   "private": true,
-  "repository": "https://https://github.com/Joey-Red/EventPlanner",
+  "description": "REST API back end, React front end full stack MERN app monorepo event planning web app.",
+  "repository": {
+    "type": "git",
+    "url": "https://https://github.com/Joey-Red/EventPlanner"
+  },
   "keywords": [
     "static",
     "MERN",
@@ -19,39 +23,12 @@
     "bcrypt",
     "Router"
   ],
-  "engines": {
-    "node": "16.14.2"
-  },
+  "author": "Joey Dalrymple",
+  "license": "ISC",
   "scripts": {
     "postinstall": "if [ $CLIENT_ENV ]; then npm run postinstall-client; elif [ $SERVER_ENV ]; then npm run postinstall-server; else echo no environment detected, please set CLIENT_ENV or SERVER_ENV; fi",
     "postinstall-client": "cd frontend && npm install && npm run build",
     "postinstall-server": "cd backend && npm install"
   },
-  "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.20.0",
-    "compression": "^1.7.4",
-    "cookie-parser": "~1.4.4",
-    "cookie-session": "^2.0.0",
-    "cors": "^2.8.5",
-    "debug": "~2.6.9",
-    "dotenv": "^16.0.1",
-    "ejs": "^3.1.8",
-    "express": "~4.16.1",
-    "express-react-views": "^0.11.0",
-    "express-session": "^1.17.3",
-    "google-auth-library": "^8.5.1",
-    "helmet": "^5.1.0",
-    "jsonwebtoken": "^8.5.1",
-    "mongodb": "^4.7.0",
-    "mongoose": "^6.4.4",
-    "passport": "^0.6.0",
-    "passport-local": "^1.0.0",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0"
-  },
-  "devDependencies": {
-    "concurrently": "^7.2.2",
-    "nodemon": "^2.0.19"
-  }
+  "dependencies": {}
 }
