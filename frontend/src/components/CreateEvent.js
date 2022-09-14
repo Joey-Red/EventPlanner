@@ -141,7 +141,7 @@ function CreateEvent() {
     if (e.error) {
       console.log("Error :)");
     } else {
-      Axios.post("http://localhost:8080/create-event", {
+      Axios.post("https://eventplanner-api.herokuapp.com/create-event", {
         eventTitle: eventTitle,
         eventDescription: eventDescription,
         eventCreator: `${currFirstName} ${currLastName}`,

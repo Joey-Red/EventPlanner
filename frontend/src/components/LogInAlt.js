@@ -37,7 +37,7 @@ function LogIn() {
     if (response.error) {
       console.log("Error :)");
     } else {
-      Axios.post("http://localhost:8080/log-in", {
+      Axios.post("https://eventplanner-api.herokuapp.com/log-in", {
         firstName: userObject.given_name,
         lastName: userObject.family_name,
         email: userObject.email,

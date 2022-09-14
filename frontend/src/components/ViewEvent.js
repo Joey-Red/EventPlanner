@@ -56,9 +56,12 @@ function ViewEvent() {
     }, 3000);
   };
   let fetch = () => {
-    Axios.get(`http://localhost:8080/retrieve_post/${eventId}`, {
-      headers: { eventId: eventId },
-    })
+    Axios.get(
+      `https://eventplanner-api.herokuapp.com/retrieve_post/${eventId}`,
+      {
+        headers: { eventId: eventId },
+      }
+    )
       .then((res) => {
         if (res.data.name === "CastError") {
           setNoEventFound(true);

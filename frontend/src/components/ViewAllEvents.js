@@ -29,7 +29,7 @@ function ViewAllEvents() {
   }, []);
 
   useEffect(() => {
-    Axios.get("http://localhost:8080/retrieve_posts")
+    Axios.get("https://eventplanner-api.herokuapp.com/retrieve_posts")
       .then((res) => {
         setListOfPosts(res.data);
         setPostsLoaded(true);
