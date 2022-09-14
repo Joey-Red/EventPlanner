@@ -11,4 +11,4 @@ Technologies Used:
 - SASS
 - Redux
 - JWT Decode
-- Bootstrap / React-Bootstrap
+- Bootstrap / React Bootstrap
