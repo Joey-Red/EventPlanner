@@ -78,7 +78,7 @@ function CustomNavbar() {
         <div className="navItemContainer special">
           {authState === true ? (
             <Nav.Link
-              href="/create_event"
+              href="https://joey-red.github.io/EventPlanner/#/create_event"
               style={stingyStyles}
               className="navBarOption"
             >
