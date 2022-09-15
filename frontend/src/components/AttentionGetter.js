@@ -19,7 +19,7 @@ function AttentionGetter() {
     background: "#F0F0ED",
   };
   let rerout = () => {
-    window.location = "/#/create_event";
+    window.location = "https://joey-red.github.io/EventPlanner/#/create_event";
   };
   return (
     <div style={{ position: "relative" }}>

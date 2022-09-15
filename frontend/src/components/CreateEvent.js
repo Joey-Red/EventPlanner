@@ -154,7 +154,8 @@ function CreateEvent() {
         eventTime: eventTime,
       }).then((res) => {
         let id = res.data._id;
-        window.location = "/#/view_event/" + id;
+        window.location =
+          "https://joey-red.github.io/EventPlanner/#/view_event/" + id;
       });
     }
     setEventAdmins([]);
