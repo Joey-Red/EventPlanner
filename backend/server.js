@@ -39,5 +39,7 @@ app.use(function (req, res, next) {
 // Routes
 app.use("/", routeConfig);
 
-app.listen(8080, () => console.log(`app listening on port ${PORT}`));
+app.listen(process.env.PORT || 8080, () =>
+  console.log(`app listening on port ${PORT}`)
+);
 module.exports = app;
