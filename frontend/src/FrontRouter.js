@@ -12,9 +12,9 @@ function FrontRouter() {
       <CustomNavbar />
       <Routes>
         <Route exact path="/" element={<App />} />
-        <Route path="/#/create_event" element={<CreateEvent />} />
-        <Route path="/#/view_all_events" element={<ViewAllEvents />} />
-        <Route path="/#/view_event/:id" element={<ViewEvent />} />
+        <Route path="/create_event" element={<CreateEvent />} />
+        <Route path="/view_all_events" element={<ViewAllEvents />} />
+        <Route path="/view_event/:id" element={<ViewEvent />} />
       </Routes>
       <CustomFooter />
     </div>

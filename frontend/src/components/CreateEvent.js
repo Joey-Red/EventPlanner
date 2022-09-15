@@ -154,7 +154,7 @@ function CreateEvent() {
         eventTime: eventTime,
       }).then((res) => {
         let id = res.data._id;
-        window.location = "/view_event/" + id;
+        window.location = "/#/view_event/" + id;
       });
     }
     setEventAdmins([]);
