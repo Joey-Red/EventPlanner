@@ -20,7 +20,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <HashRouter basename="/EventPlanner/">
+      {/*  basename="/EventPlanner/" */}
+      <HashRouter>
         <FrontRouter />
       </HashRouter>
     </Provider>
