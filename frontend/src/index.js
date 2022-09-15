@@ -21,7 +21,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       {/*  basename="/EventPlanner/" */}
-      <HashRouter>
+      <HashRouter basename="/EventPlanner/">
         <FrontRouter />
       </HashRouter>
     </Provider>
