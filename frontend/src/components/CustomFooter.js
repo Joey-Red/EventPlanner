@@ -76,7 +76,7 @@ function CustomFooter() {
             <Row>
               <section>
                 <>
-                  <a href="https://joey-red.github.io/EventPlanner/create_event">
+                  <a href="https://joey-red.github.io/EventPlanner/#/create_event">
                     Get Started
                   </a>
                 </>

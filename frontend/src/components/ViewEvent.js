@@ -216,7 +216,7 @@ function ViewEvent() {
                 <Card.Text className="eVite">{post.eventDescription}</Card.Text>
                 <Card.Text className="eVite">
                   <a
-                    href="https://joey-red.github.io/EventPlanner/view_all_events"
+                    href="https://joey-red.github.io/EventPlanner/#/view_all_events"
                     className="otherEvents"
                   >
                     Follow me!
