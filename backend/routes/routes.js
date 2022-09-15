@@ -21,9 +21,7 @@ async function verify(token) {
   // const domain = payload['hd'];
 }
 verify().catch(console.error);
-
 // Create Post (update to event post)
-
 router.use(
   session({
     secret: process.env.SESSION_SECRET,
