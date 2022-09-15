@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import userReducer from "./features/user";
 import FrontRouter from "./FrontRouter";
 import authReducer from "./features/authState";
@@ -20,9 +20,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter basename="/EventPlanner/">
+      <HashRouter basename="/EventPlanner/" hashType="slash">
         <FrontRouter />
-      </BrowserRouter>
+      </HashRouter>
     </Provider>
   </React.StrictMode>
 );

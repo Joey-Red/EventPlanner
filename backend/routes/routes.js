@@ -10,7 +10,7 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 const client = new OAuth2Client(process.env.REACT_APP_GOOGLE_CLIENT_ID);
-async function verify() {
+async function verify(token) {
   const ticket = await client.verifyIdToken({
     idToken: token,
     audience: process.env.REACT_APP_GOOGLE_CLIENT_ID,

@@ -46,7 +46,7 @@ function PublicDashboard() {
     // Base 4 placeholders (0 index)
     let filteredPost = 4;
     listOfPosts.forEach((post) => {
-      console.log(post);
+      // console.log(post);
       // check each post, compare date to todays date
       let testDateString = "2023-09-08";
       if (post.eventDate > todaysDate) {
