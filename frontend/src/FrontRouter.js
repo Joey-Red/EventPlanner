@@ -12,21 +12,9 @@ function FrontRouter() {
       <CustomNavbar />
       <Routes>
         <Route exact path="/" element={<App />} />
-        <Route
-          exact
-          path="https://joey-red.github.io/EventPlanner/#/create_event"
-          element={<CreateEvent />}
-        />
-        <Route
-          exact
-          path="https://joey-red.github.io/EventPlanner/#/view_all_events"
-          element={<ViewAllEvents />}
-        />
-        <Route
-          exact
-          path="https://joey-red.github.io/EventPlanner/#/view_event/:id"
-          element={<ViewEvent />}
-        />
+        <Route exact path="/create_event" element={<CreateEvent />} />
+        <Route exact path="/view_all_events" element={<ViewAllEvents />} />
+        <Route exact path="/view_event/:id" element={<ViewEvent />} />
       </Routes>
       <CustomFooter />
     </div>

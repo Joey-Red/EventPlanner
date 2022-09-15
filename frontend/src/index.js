@@ -22,7 +22,7 @@ root.render(
     <Provider store={store}>
       {/*  basename="/EventPlanner/" */}
       <HashRouter>
-        <FrontRouter />
+        <FrontRouter basename="https://joey-red.github.io/EventPlanner/" />
       </HashRouter>
     </Provider>
   </React.StrictMode>
