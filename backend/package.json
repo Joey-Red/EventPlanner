@@ -15,7 +15,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "devstart": "nodemon ./bin/www",
-    "serverstart": "DEBUG=blogApi:* npm run devstart"
+    "serverstart": "DEBUG=EventPlanner:* npm run devstart"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
