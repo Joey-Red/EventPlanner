@@ -46,10 +46,10 @@ function CustomNavbar() {
             style={soloStyles}
             className="navBarOption"
           >
-            <NavDropdown.Item href="/create_event">
+            <NavDropdown.Item href="/#/create_event">
               Plan Your next Event
             </NavDropdown.Item>
-            <NavDropdown.Item href="/view_all_events">
+            <NavDropdown.Item href="/#/view_all_events">
               View Public Events
             </NavDropdown.Item>
             <NavDropdown.Item style={stingyStyles} href="#">
@@ -59,7 +59,7 @@ function CustomNavbar() {
         </div>
         <div className="navItemContainer">
           <Nav.Link
-            href="/view_all_events"
+            href="/#/view_all_events"
             style={stingyStyles}
             className="navBarOption"
           >
@@ -78,7 +78,7 @@ function CustomNavbar() {
         <div className="navItemContainer special">
           {authState === true ? (
             <Nav.Link
-              href="/create_event"
+              href="/#/create_event"
               style={stingyStyles}
               className="navBarOption"
             >
