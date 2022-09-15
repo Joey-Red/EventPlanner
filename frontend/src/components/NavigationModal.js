@@ -53,6 +53,17 @@ function NavigationModal() {
                 </a>
               </section>
             </Row>
+            <Row>
+              <a
+                href="https://www.flaticon.com/free-icons/planner"
+                title="planner icons"
+              >
+                Planner icons created by Smashicons - Flaticon
+              </a>
+              <a href="https://unsplash.com/">
+                Photos Courtesy of The awesome Photographers on Unsplash
+              </a>
+            </Row>
           </Col>
         </Modal.Body>
         <Modal.Footer>
