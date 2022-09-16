@@ -239,3 +239,133 @@ $button-black-opaque: #2125297e;
 .otherEvents:visited {
   color: $light;
 }
+
+// Media Queries
+@media only screen and (max-width: 1444px) {
+  .special {
+    margin-right: 60px !important;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .eventItem {
+    min-width: max-content !important;
+  }
+  .navbar-brand a img {
+    max-height: none;
+    max-width: 250px;
+  }
+  .actNavContainer {
+    gap: 20px;
+  }
+  .topWave {
+    top: 55px !important;
+  }
+}
+// @media only screen and (max-width: 1126px) {
+
+// }
+@media only screen and (max-width: 1000px) {
+  // .navbar-brand a img {
+  //   max-height: none;
+  //   max-width: 200px;
+  // }
+  .topWave {
+    top: 60px !important;
+  }
+  .nav-link,
+  .navItemContainer div a {
+    font-size: 0.8em !important;
+  }
+  .container {
+    max-width: none !important;
+  }
+  #signInDiv {
+    margin-top: -2px !important;
+  }
+}
+@media only screen and (max-width: 963px) {
+  .special {
+    max-height: 39.19px;
+  }
+  #signInDiv {
+    margin-top: -1px !important;
+  }
+  .topWave {
+    top: 65px !important;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .peHeader {
+    font-size: 1.4rem;
+  }
+  .actNavContainer {
+    gap: 10px;
+  }
+}
+@media screen and (max-width: 862px) {
+  .nav-link,
+  .navItemContainer div a {
+    font-size: 0.6em !important;
+  }
+}
+@media only screen and (max-width: 801px) {
+  // .nav-link,
+  // .navItemContainer div a {
+  //   font-size: 0.5em !important;
+  // }
+  .special {
+    // max-height: 32px;
+    border: none;
+  }
+  #signInDiv {
+    margin-top: -3px !important;
+    max-height: 32px;
+  }
+  .hide {
+    display: none;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .topWave {
+    top: 66px !important;
+  }
+}
+@media only screen and (max-width: 680px) {
+  .navbar > .container {
+    display: flex;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: space-evenly !important;
+  }
+  // .topWave {
+  //   top: 55px !important;
+  // }
+}
+@media only screen and (max-width: 575px) {
+  .navbar-brand a img {
+    max-width: 175px;
+  }
+  .navItemContainer {
+    padding: 6px 4px 4px 4px;
+  }
+  .topWave {
+    top: 55px !important;
+  }
+}
+@media only screen and (max-width: 493px) {
+  // MY BACKGROUND IMAGEE This the last px it lives
+  #root {
+    min-width: 563px !important;
+  }
+  .agImage {
+    left: 0;
+    right: -120px;
+  }
+}
+// @media only screen and (max-width: 375px) {
+//   .agBsContainer {
+//     max-width: 120vw !important;
+//     margin-left: 10px !important;
+//     margin-right: 0px !important;
+//   }
+// }

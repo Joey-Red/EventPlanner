@@ -22,7 +22,15 @@ function AttentionGetter() {
     window.location = "https://joey-red.github.io/EventPlanner/#/create_event";
   };
   return (
-    <div style={{ position: "relative" }}>
+    <div
+      className="agContainerDiv"
+      style={
+        {
+          // position: "relative",
+          // width: "100%",
+        }
+      }
+    >
       <div className="agImage"></div>
       <div
         style={{
@@ -47,8 +55,8 @@ function AttentionGetter() {
             ></path>
           </svg>
         </div>
-        <Container>
-          <Container>
+        <Container className="agBsContainerOutside">
+          <Container className="agBsContainer">
             <div className="agHeaderBg">
               <h1 className="agHeader">Plan Your Event Today</h1>
             </div>

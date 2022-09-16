@@ -29,7 +29,7 @@ function CustomNavbar() {
         zIndex: "9999",
       }}
     >
-      <Container>
+      <Container className="actNavContainer">
         <Navbar.Brand>
           <a href="https://joey-red.github.io/EventPlanner/">
             <img
@@ -57,7 +57,7 @@ function CustomNavbar() {
             </NavDropdown.Item>
           </NavDropdown>
         </div>
-        <div className="navItemContainer">
+        <div className="navItemContainer eventItem">
           <Nav.Link
             href="https://joey-red.github.io/EventPlanner/#/view_all_events"
             style={stingyStyles}
@@ -75,7 +75,7 @@ function CustomNavbar() {
             Home
           </Nav.Link>
         </div>
-        <div className="navItemContainer special">
+        <div className="navItemContainer special hide">
           {authState === true ? (
             <Nav.Link
               href="https://joey-red.github.io/EventPlanner/#/create_event"

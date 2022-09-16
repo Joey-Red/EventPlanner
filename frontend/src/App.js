@@ -8,7 +8,23 @@ import CustomFooter from "./components/CustomFooter";
 
 function App() {
   return (
-    <div>
+    <div
+      className="appContainer"
+      style={
+        {
+          // display: "flex",
+          // flexDirection: "column",
+          // justifyContent: "center",
+          // width: "100%",
+          // left: "0",
+          // right: "0",
+          // backgroundSize: "cover",
+          // minWidth: "100vw",
+          // width: "100vw",
+          // position: "relative",
+        }
+      }
+    >
       <AttentionGetter />
       <Wave2 />
       <PublicDashboard />

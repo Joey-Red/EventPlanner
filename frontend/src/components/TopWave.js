@@ -2,6 +2,7 @@ import React from "react";
 function Waves() {
   return (
     <div
+      className="topWave"
       style={{
         position: "fixed",
         top: "90px",
