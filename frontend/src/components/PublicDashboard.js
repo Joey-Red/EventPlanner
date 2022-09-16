@@ -28,7 +28,8 @@ function PublicDashboard() {
       });
   }, []);
   let rerout = () => {
-    window.location = "/#/view_all_events";
+    window.location =
+      "https://joey-red.github.io/EventPlanner/#/view_all_events";
   };
   useEffect(() => {
     const today = new Date();

@@ -113,7 +113,7 @@ function CreateEvent() {
             setCurrLastName(decodedUser.family_name);
             setHostEmail(decodedUser.email);
           } else {
-            console.log("triggered");
+            // console.log("triggered");
             dispatch(authUser(false));
             window.location.href = "https://joey-red.github.io/EventPlanner/";
           }
