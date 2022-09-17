@@ -235,6 +235,10 @@
   color: #ffffff;
 }
 
+.agBsContainerOutside {
+  padding-left: 10px !important;
+}
+
 @media only screen and (max-width: 1444px) {
   .special {
     margin-right: 60px !important;
@@ -282,6 +286,13 @@
   .topWave {
     top: 65px !important;
   }
+  .footerLinks {
+    font-size: 0.8rem;
+    padding: 16px 20px;
+  }
+  .gSignInFooter {
+    display: none;
+  }
 }
 @media only screen and (max-width: 900px) {
   .peHeader {
@@ -321,6 +332,15 @@
     align-items: center;
     justify-content: space-evenly !important;
   }
+  .aboutUsUnder {
+    max-width: 10em !important;
+    margin: 4px;
+  }
+  .auImg img {
+    position: absolute !important;
+    right: 2px;
+    bottom: 2px;
+  }
 }
 @media only screen and (max-width: 575px) {
   .navbar-brand a img {
@@ -332,13 +352,16 @@
   .topWave {
     top: 55px !important;
   }
+  .footerLinks {
+    padding: 12px 16px;
+  }
 }
 @media only screen and (max-width: 493px) {
   #root {
     min-width: 563px !important;
   }
   .agImage {
-    left: 0;
-    right: -120px;
+    width: 563px;
+    height: 1000px;
   }
 }/*# sourceMappingURL=stylesheet.css.map */

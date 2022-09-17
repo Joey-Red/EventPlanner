@@ -62,7 +62,7 @@ function CustomFooter() {
           </Col>
           <Col style={stackLinks}>
             <Row>
-              <section>
+              <section className="gSignInFooter">
                 <LogInAltFooter />
               </section>
             </Row>
@@ -94,16 +94,18 @@ function CustomFooter() {
               </section>
             </Row>
           </Col>
-          <img
-            src={logo}
-            alt="Free Event Planner Logo"
-            style={{
-              maxHeight: "90px",
-              maxWidth: "93px",
-              minHeight: "90px",
-              minWidth: "93px",
-            }}
-          />
+          <div className="auImg">
+            <img
+              src={logo}
+              alt="Free Event Planner Logo"
+              style={{
+                maxHeight: "90px",
+                maxWidth: "93px",
+                minHeight: "90px",
+                minWidth: "93px",
+              }}
+            />
+          </div>
         </div>
       </Navbar>
     </>

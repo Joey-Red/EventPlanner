@@ -240,6 +240,9 @@ $button-black-opaque: #2125297e;
   color: $light;
 }
 
+.agBsContainerOutside {
+  padding-left: 10px !important;
+}
 // Media Queries
 @media only screen and (max-width: 1444px) {
   .special {
@@ -293,6 +296,13 @@ $button-black-opaque: #2125297e;
   .topWave {
     top: 65px !important;
   }
+  .footerLinks {
+    font-size: 0.8rem;
+    padding: 16px 20px;
+  }
+  .gSignInFooter {
+    display: none;
+  }
 }
 @media only screen and (max-width: 900px) {
   .peHeader {
@@ -337,9 +347,21 @@ $button-black-opaque: #2125297e;
     align-items: center;
     justify-content: space-evenly !important;
   }
-  // .topWave {
-  //   top: 55px !important;
-  // }
+  .aboutUsUnder {
+    max-width: 10em !important;
+    margin: 4px;
+    // margin-left: 4px;
+  }
+  .auImg img {
+    position: absolute !important;
+    // left: 0;
+    right: 2px;
+    bottom: 2px;
+    // max-height: "90px";
+    // max-width: "20px";
+    // min-height: "40px";
+    // min-width: "20px";
+  }
 }
 @media only screen and (max-width: 575px) {
   .navbar-brand a img {
@@ -351,6 +373,10 @@ $button-black-opaque: #2125297e;
   .topWave {
     top: 55px !important;
   }
+  .footerLinks {
+    // font-size: 0.7rem;
+    padding: 12px 16px;
+  }
 }
 @media only screen and (max-width: 493px) {
   // MY BACKGROUND IMAGEE This the last px it lives
@@ -358,8 +384,11 @@ $button-black-opaque: #2125297e;
     min-width: 563px !important;
   }
   .agImage {
-    left: 0;
-    right: -120px;
+    width: 563px;
+    height: 1000px;
+    // bottom: -100px;
+    // right: -178px;
+    // overflow: hidden;
   }
 }
 // @media only screen and (max-width: 375px) {
