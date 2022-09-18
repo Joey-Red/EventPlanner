@@ -11,7 +11,7 @@ function EventPlaceholder(props) {
     eventTime,
   } = props;
   let rerout = (e) => {
-    window.location = `https://joey-red.github.io/EventPlanner/#/view_event/${postId}`;
+    window.location = `https://joey-red.github.io/EventPlanner/#/view_event/#/${postId}`;
   };
   return (
     <Container>
