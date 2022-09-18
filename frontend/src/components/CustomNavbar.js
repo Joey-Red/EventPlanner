@@ -53,7 +53,9 @@ function CustomNavbar() {
               View Public Events
             </NavDropdown.Item>
             <NavDropdown.Item style={stingyStyles} href="#">
-              <LogIn />
+              <div style={{ paddingBottom: "4px" }}>
+                <LogIn />
+              </div>
             </NavDropdown.Item>
           </NavDropdown>
         </div>

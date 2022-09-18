@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import EventPlaceholder from "./EventPlaceholder";
 import { Container, Spinner } from "react-bootstrap";
 import EventPlaceholderEmpty from "./EventPlaceholderEmpty";
-
+import TopWave from "./TopWave";
 function ViewAllEvents() {
   const [listOfPosts, setListOfPosts] = useState([{}]);
   const [postsLoaded, setPostsLoaded] = useState(false);
@@ -72,12 +72,13 @@ function ViewAllEvents() {
   }, [todaysDate, listOfPosts]);
 
   return (
-    <div style={{ position: "relative", zIndex: "9997" }}>
+    <div style={{ position: "relative", zIndex: "9996" }}>
       {" "}
+      <TopWave />
       <div className="vaeImage"></div>
       <Container
         className="pubEventFullContainer"
-        style={{ position: "relative" }}
+        style={{ position: "relative", zIndex: "0" }}
       >
         <div
           className="publicEventInfo"

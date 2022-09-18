@@ -14,7 +14,6 @@ function ViewEvent() {
   let [noEventFound, setNoEventFound] = useState(false);
   let centerEverything = {
     display: "flex",
-    margin: "0px auto 0px auto",
     flexDirection: "column",
     gap: "20px",
     padding: "40px",
@@ -24,14 +23,14 @@ function ViewEvent() {
     borderRadius: "0.375rem",
   };
   let centerEverythingContainer = {
-    display: "flex",
-    margin: "0px auto 0px auto",
-    flexDirection: "column",
-    gap: "20px",
-    padding: "40px",
-    alignItems: "center",
-    background: "none",
-    fontSize: "1.3rem",
+    // display: "flex",
+    // margin: "0px auto 0px auto",
+    // flexDirection: "column",
+    // gap: "20px",
+    // padding: "40px",
+    // alignItems: "center",
+    // background: "none",
+    // fontSize: "1.3rem",
     color: "#ffffff",
   };
   useEffect(() => {
@@ -82,15 +81,31 @@ function ViewEvent() {
   };
 
   return (
-    <div className="veFullContainer" style={{ paddingBottom: "150px" }}>
+    <div
+      className="veFullContainer"
+      style={{
+        //  paddingBottom: "250px",
+        padding: "25vh 20px",
+      }}
+    >
       <div className="veBgImg"></div>
       <TopWave />
       {postLoaded && !noEventFound ? (
         <>
           return (
-          <div style={{ marginTop: "267px" }}>
-            <Container style={centerEverythingContainer}>
-              <Card style={{ minHeight: "50vh", background: "none" }}>
+          <div
+          // style={{ marginTop: "267px" }}
+          >
+            <Container
+              style={centerEverythingContainer}
+              className="gutterContainer"
+            >
+              <Card
+                style={{
+                  minHeight: "50vh",
+                  background: "none",
+                }}
+              >
                 <Card.Body style={centerEverything}>
                   {currUser.email === post.hostEmail && showLink ? (
                     <Container
@@ -132,11 +147,17 @@ function ViewEvent() {
                             style={{
                               display: "flex",
                               justifyContent: "center",
+                              flexDirection: "column",
                               alignItems: "center",
                               color: "#FF6961",
                             }}
                           >
-                            {window.location.href}{" "}
+                            <div
+                              className="clipLink"
+                              style={{ textAlign: "center" }}
+                            >
+                              {window.location.href}
+                            </div>
                             <Button
                               style={{
                                 maxWidth: "fit-content",
@@ -149,7 +170,15 @@ function ViewEvent() {
                             </Button>
                             {showCopied ? (
                               <>
-                                <Badge bg="secondary">Copied!</Badge>
+                                <Badge
+                                  bg="secondary"
+                                  style={{
+                                    maxWidth: "fit-content",
+                                    margin: "6px",
+                                  }}
+                                >
+                                  Copied!
+                                </Badge>
                               </>
                             ) : (
                               <></>
@@ -177,7 +206,7 @@ function ViewEvent() {
                     {post.eventTitle} will be held on {post.eventDate} at{" "}
                     {post.eventTime}
                   </Card.Text>
-                  <Card.Text className="eVite">
+                  <Card.Text className="eVite" style={{ zIndex: "1" }}>
                     For further information, contact {post.eventCreator} at{" "}
                     {post.hostEmail}
                   </Card.Text>
@@ -192,6 +221,7 @@ function ViewEvent() {
                       position: "absolute",
                       bottom: "12px",
                       right: "12px",
+                      zIndex: "0",
                     }}
                   />
                 </Card.Body>
@@ -203,14 +233,24 @@ function ViewEvent() {
         <></>
       )}
       {noEventFound ? (
-        <div style={{ marginTop: "267px" }}>
-          <Container style={centerEverythingContainer}>
-            <Card style={{ minHeight: "50vh", background: "none" }}>
+        <div>
+          <Container
+            style={centerEverythingContainer}
+            className="gutterContainer"
+          >
+            <Card
+              style={{
+                minHeight: "50vh",
+                background: "none",
+                marginTop: "50px",
+                marginBottom: "18vh",
+              }}
+            >
               <Card.Body style={centerEverything}>
                 <Card.Text className="eViteHeader" style={{ fontSize: "2rem" }}>
                   We couldn't find that event.
                 </Card.Text>
-                <Card.Text className="eVite">
+                <Card.Text className="eVite" style={{ textAlign: "center" }}>
                   Why don't you check out some others?
                 </Card.Text>
                 <Card.Text className="eVite">{post.eventDescription}</Card.Text>

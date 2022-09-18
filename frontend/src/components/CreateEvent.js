@@ -169,11 +169,20 @@ function CreateEvent() {
       <div className="ceBgImg"></div>
       <TopWave />
       <Container>
-        <Container>
+        <Container
+          style={{
+            justifyContent: "center",
+            display: "flex",
+          }}
+        >
           <div
             style={{
-              paddingTop: "255px",
-              paddingBottom: "209px",
+              // paddingTop: "350px",
+              // paddingBottom: "300px",
+              paddingTop: "25vh",
+              paddingBottom: "25vh",
+              maxWidth: "1000px",
+              minWidth: "40vw",
             }}
           >
             <h1 className="ceHeader">Create Event</h1>
@@ -191,7 +200,7 @@ function CreateEvent() {
                     </Card.Text>
                   </Row>
                   <InputGroup>
-                    <Col>
+                    <Col className="groupContainer">
                       <Row className="mb-1">
                         <InputGroup.Text className="mb-1">
                           What is this event?
@@ -248,7 +257,7 @@ function CreateEvent() {
                           value={eventTime}
                         ></Form.Control>
                       </Row>
-                      <Row className="mb-1">
+                      {/* <Row className="mb-1">
                         <InputGroup.Text className="mb-1">
                           Add the emails of anyone you would like to let make
                           changes to your event, such as update posts.
@@ -288,8 +297,8 @@ function CreateEvent() {
                             })}
                           </Row>
                         </Container>
-                      </Row>
-                      <Row className="mb-1">
+                      </Row> */}
+                      {/* <Row className="mb-1">
                         <InputGroup.Text className="mb-1">
                           Who is invited? Add their email, so we can send this
                           invite to them! You will also get a link to share
@@ -331,7 +340,7 @@ function CreateEvent() {
                             })}
                           </Row>
                         </Container>
-                      </Row>
+                      </Row> */}
                       <Row className="mb-1">
                         <div>
                           <div key={`default-checkbox`} className="mb-1">
