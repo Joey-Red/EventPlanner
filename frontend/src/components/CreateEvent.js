@@ -124,14 +124,6 @@ function CreateEvent() {
     },
     [authState, dispatch]
   );
-  function addToList(e) {
-    eventAdmins.push(currEventAdmin);
-    setCurrEventAdmin("");
-  }
-  function addToEmailList(e) {
-    emailRegistry.push(currEmail);
-    setCurrEmail("");
-  }
   const handleChange = (e) => {
     setPublicStatus(e.target.checked);
     setAlert(e.target.checked);
