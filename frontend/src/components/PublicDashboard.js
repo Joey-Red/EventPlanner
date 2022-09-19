@@ -103,6 +103,7 @@ function PublicDashboard() {
               {postsFiltered ? (
                 <>
                   {verifiedPost.map((post) => {
+                    console.log("test");
                     return (
                       <div className="postContainerContainer" key={uuidv4()}>
                         <div className="singlePost">
