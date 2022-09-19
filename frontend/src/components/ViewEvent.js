@@ -200,7 +200,7 @@ function ViewEvent() {
                   <Card.Text className="eVite">
                     {post.eventCreator} warmly welcomes you to {post.eventTitle}
                   </Card.Text>
-                  <Card.Text className="eVite">
+                  <Card.Text className="eVite" style={{ textAlign: "center" }}>
                     {post.eventDescription}
                   </Card.Text>
                   <Card.Text className="eVite">
