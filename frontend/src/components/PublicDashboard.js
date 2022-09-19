@@ -60,9 +60,10 @@ function PublicDashboard() {
         //reduce number of placeholders
         // console.log(filteredPost);
       }
+      console.log(verifiedPost);
     });
     // Good posts found, show on screen
-    setPostsLoaded(true);
+    // setPostsLoaded(true);
     setPostsFiltered(true);
     // if (filteredPost > 0) {
     // If placeholders needed, add them to array
