@@ -39,7 +39,6 @@ function ViewEvent() {
     let windowLoc = window.location.href;
     let juice = windowLoc.split("/");
     setEventId(juice[4]);
-    console.log("eventId: ", eventId);
     if (eventId !== "") {
       fetch();
     }
