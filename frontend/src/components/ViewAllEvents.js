@@ -47,6 +47,7 @@ function ViewAllEvents() {
       // check each post, compare date to todays date
       let testDateString = "2023-09-20";
       if (post.eventDate > todaysDate) {
+        console.log(todaysDate);
         verifiedPost.push(post);
         // setVerifiedPost({ ...verifiedPost, post });
         // date good? add to array
