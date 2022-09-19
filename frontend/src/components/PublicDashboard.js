@@ -48,6 +48,8 @@ function PublicDashboard() {
       // console.log(post);
       // check each post, compare date to todays date
       let testDateString = "2023-09-08";
+      console.log("line before push");
+      console.log(todaysDate);
       if (post.eventDate > todaysDate) {
         verifiedPost.push(post);
         console.log("pushed");
