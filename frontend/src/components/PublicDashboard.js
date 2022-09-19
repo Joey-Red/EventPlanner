@@ -70,7 +70,7 @@ function PublicDashboard() {
       setPlaceholders([...placeholders, { key: "value" }]);
       // console.log(placeholders);
     }
-    // # placeholders set, fill them
+    // ## placeholders set, fill them
     setFillPlaceHolders(true);
     // }
   }, [todaysDate, listOfPosts]);
