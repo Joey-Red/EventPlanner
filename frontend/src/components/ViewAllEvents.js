@@ -8,9 +8,7 @@ import TopWave from "./TopWave";
 function ViewAllEvents() {
   const [listOfPosts, setListOfPosts] = useState([{}]);
   const [postsLoaded, setPostsLoaded] = useState(false);
-  const [remainingPosts, setRemainingPosts] = useState(0);
   const [placeholders, setPlaceholders] = useState([]);
-  // let [filteredPost, setFilteredPost] = useState(3);
   let [verifiedPost, setVerifiedPost] = useState([]);
   let [postsFiltered, setPostsFiltered] = useState(false);
   let [fillPlaceHolders, setFillPlaceHolders] = useState(false);

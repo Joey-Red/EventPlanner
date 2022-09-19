@@ -9,7 +9,6 @@ function CustomNavbar() {
   let stingyStyles = {
     color: "#ffffff",
     fontSize: "1rem",
-    // alignSelf: "end",
   };
   let soloStyles = {
     color: "#ffffff",

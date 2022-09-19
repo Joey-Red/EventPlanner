@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card, Container, Row, Col } from "react-bootstrap";
+import { Button, Card, Container, Col } from "react-bootstrap";
 function EventPlaceholderEmpty(props) {
   let rerout = (e) => {
     // window.location = `/view_event/${postId}`;

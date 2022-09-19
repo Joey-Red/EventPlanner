@@ -22,15 +22,7 @@ function AttentionGetter() {
     window.location = "https://joey-red.github.io/EventPlanner/#/create_event";
   };
   return (
-    <div
-      className="agContainerDiv"
-      style={
-        {
-          // position: "relative",
-          // width: "100%",
-        }
-      }
-    >
+    <div className="agContainerDiv">
       <div className="agImage"></div>
       <div
         style={{

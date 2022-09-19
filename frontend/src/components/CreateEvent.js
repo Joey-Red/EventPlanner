@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-import { v4 as uuidv4 } from "uuid";
 import jwt_decode from "jwt-decode";
 import { useSelector, useDispatch } from "react-redux";
-import { login, logout } from "../features/user";
+import { login } from "../features/user";
 import { authUser } from "../features/authState";
 import TopWave from "./TopWave";
 import {
@@ -257,90 +256,6 @@ function CreateEvent() {
                           value={eventTime}
                         ></Form.Control>
                       </Row>
-                      {/* <Row className="mb-1">
-                        <InputGroup.Text className="mb-1">
-                          Add the emails of anyone you would like to let make
-                          changes to your event, such as update posts.
-                        </InputGroup.Text>
-                        <Form.Control
-                          className="mb-1"
-                          type="email"
-                          id="currEventAdmin"
-                          value={currEventAdmin}
-                          placeholder="admin@email.com"
-                          onChange={(e) => {
-                            setCurrEventAdmin(e.target.value);
-                          }}
-                        ></Form.Control>
-                        <Button
-                          variant="dark"
-                          style={{ border: "solid #eb8276 1px" }}
-                          onClick={(e) => addToList(e.preventDefault())}
-                        >
-                          Add Admin
-                        </Button>
-                        <Container
-                          className="adminContainer"
-                          style={{ borderRadius: "0.375rem" }}
-                        >
-                          <Row>
-                            {eventAdmins.map((admin) => {
-                              return (
-                                <div
-                                  style={{ maxWidth: "fit-content" }}
-                                  className="admin"
-                                  key={uuidv4()}
-                                >
-                                  {admin}
-                                </div>
-                              );
-                            })}
-                          </Row>
-                        </Container>
-                      </Row> */}
-                      {/* <Row className="mb-1">
-                        <InputGroup.Text className="mb-1">
-                          Who is invited? Add their email, so we can send this
-                          invite to them! You will also get a link to share
-                          manually.
-                        </InputGroup.Text>
-                        <Form.Control
-                          className="mb-1"
-                          id="currEmail"
-                          type="email"
-                          value={currEmail}
-                          placeholder="john@doe.com"
-                          onChange={(e) => {
-                            setCurrEmail(e.target.value);
-                          }}
-                        ></Form.Control>
-                        <Button
-                          className="mb-1"
-                          style={{ border: "solid #eb8276 1px" }}
-                          variant="dark"
-                          onClick={(e) => addToEmailList(e.preventDefault())}
-                        >
-                          Add Email
-                        </Button>
-                        <Container
-                          className="adminContainer mb-1"
-                          style={{ borderRadius: "0.375rem" }}
-                        >
-                          <Row>
-                            {emailRegistry.map((email) => {
-                              return (
-                                <div
-                                  className="admin"
-                                  key={uuidv4()}
-                                  style={{ maxWidth: "fit-content" }}
-                                >
-                                  {email}
-                                </div>
-                              );
-                            })}
-                          </Row>
-                        </Container>
-                      </Row> */}
                       <Row className="mb-1">
                         <div>
                           <div key={`default-checkbox`} className="mb-1">

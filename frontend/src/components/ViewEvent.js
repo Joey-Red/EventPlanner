@@ -23,14 +23,6 @@ function ViewEvent() {
     borderRadius: "0.375rem",
   };
   let centerEverythingContainer = {
-    // display: "flex",
-    // margin: "0px auto 0px auto",
-    // flexDirection: "column",
-    // gap: "20px",
-    // padding: "40px",
-    // alignItems: "center",
-    // background: "none",
-    // fontSize: "1.3rem",
     color: "#ffffff",
   };
   useEffect(() => {
