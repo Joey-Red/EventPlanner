@@ -38,8 +38,10 @@ function ViewEvent() {
     setCurrUser(userObject);
     let windowLoc = window.location.href;
     let juice = windowLoc.split("/");
-    console.log(juice);
-    setEventId(juice[4]);
+    let eidTemp = juice[5];
+    let eid = eidTemp.slice(9);
+    console.log(eid);
+    setEventId(eid);
     if (eventId !== "") {
       fetch();
     }
