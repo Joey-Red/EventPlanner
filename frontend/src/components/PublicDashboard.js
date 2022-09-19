@@ -62,6 +62,7 @@ function PublicDashboard() {
       }
     });
     // Good posts found, show on screen
+    setPostsLoaded(true);
     setPostsFiltered(true);
     // if (filteredPost > 0) {
     // If placeholders needed, add them to array
