@@ -49,7 +49,6 @@ function ViewAllEvents() {
       if (post.eventDate > todaysDate) {
         verifiedPost.push(post);
         // setVerifiedPost({ ...verifiedPost, post });
-        // console.log(verifiedPost);
         // date good? add to array
         filteredPost--;
         //reduce number of placeholders
