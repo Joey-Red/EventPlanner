@@ -38,6 +38,7 @@ function ViewEvent() {
     setCurrUser(userObject);
     let windowLoc = window.location.href;
     let juice = windowLoc.split("/");
+    console.log(juice);
     setEventId(juice[4]);
     if (eventId !== "") {
       fetch();
