@@ -339,6 +339,9 @@
     align-items: center;
     justify-content: space-evenly !important;
   }
+  .aboutUs {
+    margin: 4px !important;
+  }
   .aboutUsUnder {
     max-width: 10em !important;
     margin: 4px;
