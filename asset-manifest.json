@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/EventPlanner/static/css/main.06da4e74.css",
-    "main.js": "/EventPlanner/static/js/main.f73c0e9f.js",
+    "main.css": "/EventPlanner/static/css/main.f202456b.css",
+    "main.js": "/EventPlanner/static/js/main.7fc33af4.js",
     "static/media/peopleAndTent.jpg": "/EventPlanner/static/media/peopleAndTent.da4744052d6f7aa6a3f2.jpg",
     "static/media/welcome2.jpg": "/EventPlanner/static/media/welcome2.7b0164ccb4606f3b270d.jpg",
     "static/media/planning.jpg": "/EventPlanner/static/media/planning.dc729fb23b6d31a9cacf.jpg",
@@ -11,11 +11,11 @@
     "static/media/lemonmilk-regular-webfont.woff": "/EventPlanner/static/media/lemonmilk-regular-webfont.d34d8416de00d9a91a78.woff",
     "static/media/lemonmilk-regular-webfont.woff2": "/EventPlanner/static/media/lemonmilk-regular-webfont.92d418e099e42123c126.woff2",
     "index.html": "/EventPlanner/index.html",
-    "main.06da4e74.css.map": "/EventPlanner/static/css/main.06da4e74.css.map",
-    "main.f73c0e9f.js.map": "/EventPlanner/static/js/main.f73c0e9f.js.map"
+    "main.f202456b.css.map": "/EventPlanner/static/css/main.f202456b.css.map",
+    "main.7fc33af4.js.map": "/EventPlanner/static/js/main.7fc33af4.js.map"
   },
   "entrypoints": [
-    "static/css/main.06da4e74.css",
-    "static/js/main.f73c0e9f.js"
+    "static/css/main.f202456b.css",
+    "static/js/main.7fc33af4.js"
   ]
 }
