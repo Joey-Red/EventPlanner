@@ -203,11 +203,14 @@ function ViewEvent() {
                   <Card.Text className="eVite" style={{ textAlign: "center" }}>
                     {post.eventDescription}
                   </Card.Text>
-                  <Card.Text className="eVite">
+                  <Card.Text className="eVite" style={{ textAlign: "center" }}>
                     {post.eventTitle} will be held on {post.eventDate} at{" "}
                     {post.eventTime}
                   </Card.Text>
-                  <Card.Text className="eVite" style={{ zIndex: "1" }}>
+                  <Card.Text
+                    className="eVite"
+                    style={{ zIndex: "1", textAlign: "center" }}
+                  >
                     For further information, contact {post.eventCreator} at{" "}
                     {post.hostEmail}
                   </Card.Text>
