@@ -48,11 +48,11 @@ function PublicDashboard() {
       // console.log(post);
       // check each post, compare date to todays date
       let testDateString = "2023-09-08";
-      console.log("line before push");
-      console.log(todaysDate);
+      // console.log("line before push");
+      // console.log(todaysDate);
       if (post.eventDate > todaysDate) {
         verifiedPost.push(post);
-        console.log("pushed");
+        // console.log("pushed");
         // setVerifiedPost({ ...verifiedPost, post });
         // console.log(verifiedPost);
         // date good? add to array
@@ -60,7 +60,7 @@ function PublicDashboard() {
         //reduce number of placeholders
         // console.log(filteredPost);
       }
-      console.log(verifiedPost);
+      // console.log(verifiedPost);
     });
     // Good posts found, show on screen
     // setPostsLoaded(true);
