@@ -50,6 +50,7 @@ function PublicDashboard() {
       let testDateString = "2023-09-08";
       if (post.eventDate > todaysDate) {
         verifiedPost.push(post);
+        console.log("pushed");
         // setVerifiedPost({ ...verifiedPost, post });
         // console.log(verifiedPost);
         // date good? add to array
