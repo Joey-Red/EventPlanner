@@ -100,89 +100,85 @@ function ViewEvent() {
                 }}
               >
                 <Card.Body style={centerEverything}>
-                  {currUser.email === post.hostEmail && showLink ? (
-                    <Container
+                  <Container
+                    style={{
+                      color: "black",
+                      background: "none",
+                    }}
+                  >
+                    <Card
                       style={{
-                        color: "black",
-                        background: "none",
+                        backgroundColor: "rgba(108, 122, 137, 0.4)",
+                        color: "#ffffff",
                       }}
                     >
-                      <Card
-                        style={{
-                          backgroundColor: "rgba(108, 122, 137, 0.4)",
-                          color: "#ffffff",
-                        }}
-                      >
-                        <Card.Body>
-                          <button
-                            style={{
-                              position: "absolute",
-                              top: "4px",
-                              right: "4px",
-                              border: "none",
-                              background: "none",
-                            }}
-                            onClick={() => close()}
+                      <Card.Body>
+                        <button
+                          style={{
+                            position: "absolute",
+                            top: "4px",
+                            right: "4px",
+                            border: "none",
+                            background: "none",
+                          }}
+                          onClick={() => close()}
+                        >
+                          &#10006;
+                        </button>
+                        <Row
+                          style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            color: "#FF6961",
+                          }}
+                        >
+                          Shareable Link!
+                        </Row>
+                        <Row
+                          style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            color: "#FF6961",
+                          }}
+                        >
+                          <div
+                            className="clipLink"
+                            style={{ textAlign: "center" }}
                           >
-                            &#10006;
-                          </button>
-                          <Row
+                            {window.location.href}
+                          </div>
+                          <Button
                             style={{
-                              display: "flex",
-                              justifyContent: "center",
-                              alignItems: "center",
-                              color: "#FF6961",
+                              maxWidth: "fit-content",
+                              marginLeft: "8px",
                             }}
+                            variant="dark"
+                            onClick={() => copy()}
                           >
-                            Shareable Link!
-                          </Row>
-                          <Row
-                            style={{
-                              display: "flex",
-                              justifyContent: "center",
-                              flexDirection: "column",
-                              alignItems: "center",
-                              color: "#FF6961",
-                            }}
-                          >
-                            <div
-                              className="clipLink"
-                              style={{ textAlign: "center" }}
-                            >
-                              {window.location.href}
-                            </div>
-                            <Button
-                              style={{
-                                maxWidth: "fit-content",
-                                marginLeft: "8px",
-                              }}
-                              variant="dark"
-                              onClick={() => copy()}
-                            >
-                              Copy to Clipboard
-                            </Button>
-                            {showCopied ? (
-                              <>
-                                <Badge
-                                  bg="secondary"
-                                  style={{
-                                    maxWidth: "fit-content",
-                                    margin: "6px",
-                                  }}
-                                >
-                                  Copied!
-                                </Badge>
-                              </>
-                            ) : (
-                              <></>
-                            )}
-                          </Row>
-                        </Card.Body>
-                      </Card>
-                    </Container>
-                  ) : (
-                    <></>
-                  )}
+                            Copy to Clipboard
+                          </Button>
+                          {showCopied ? (
+                            <>
+                              <Badge
+                                bg="secondary"
+                                style={{
+                                  maxWidth: "fit-content",
+                                  margin: "6px",
+                                }}
+                              >
+                                Copied!
+                              </Badge>
+                            </>
+                          ) : (
+                            <></>
+                          )}
+                        </Row>
+                      </Card.Body>
+                    </Card>
+                  </Container>
                   <Card.Text
                     className="eViteHeader"
                     style={{ fontSize: "2rem" }}

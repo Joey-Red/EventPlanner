@@ -20,13 +20,13 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <HashRouter>
+      {/* <HashRouter>
         <FrontRouter basename="https://joey-red.github.io/EventPlanner/" />
-      </HashRouter>
+      </HashRouter> */}
       {/* Router for testing local */}
-      {/* <BrowserRouter>
+      <BrowserRouter>
         <FrontRouter />
-      </BrowserRouter> */}
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>
 );
