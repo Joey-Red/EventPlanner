@@ -65,7 +65,7 @@ function ViewEvent() {
       .then((res) => {
         if (res.data.name === "CastError") {
           setNoEventFound(true);
-          console.log(noEventFound);
+          // console.log(noEventFound);
         } else {
           setPost(res.data);
           setPostLoaded(true);

@@ -40,8 +40,9 @@ function ViewAllEvents() {
   }, []);
 
   useEffect(() => {
-    // Base 4 placeholders (0 index)
-    let filteredPost = 4;
+    // Base 4 placeholders
+    // let filteredPost = 4;
+    let filteredPost = 3;
     listOfPosts.forEach((post) => {
       console.log(post);
       // check each post, compare date to todays date
