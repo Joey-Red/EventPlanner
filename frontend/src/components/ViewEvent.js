@@ -39,8 +39,7 @@ function ViewEvent() {
     let windowLoc = window.location.href;
     let juice = windowLoc.split("/");
     let eidTemp = juice[5];
-    let eid = eidTemp.slice(9);
-    console.log(eid);
+    let eid = eidTemp.slice(10);
     setEventId(eid);
     if (eventId !== "") {
       fetch();
