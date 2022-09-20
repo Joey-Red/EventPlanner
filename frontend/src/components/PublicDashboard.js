@@ -11,7 +11,7 @@ function PublicDashboard() {
   const [postsLoaded, setPostsLoaded] = useState(false);
   const [placeholders, setPlaceholders] = useState([{}]);
   const [todaysDate, setTodaysDate] = useState("");
-  let [verifiedPost, setVerifiedPost] = useState([]);
+  let [verifiedPosts, setVerifiedPosts] = useState([]);
   let [postsFiltered, setPostsFiltered] = useState(false);
   let [fillPlaceHolders, setFillPlaceHolders] = useState(false);
   // Fetch Posts
@@ -41,42 +41,26 @@ function PublicDashboard() {
     setTodaysDate(formattedToday);
   }, []);
 
+  const updatedState = [];
+  const placeholderCount = [];
   useEffect(() => {
-    // Base 4 placeholders (0 index)
-    let filteredPost = 4;
     listOfPosts.forEach((post) => {
-      // console.log(post);
-      // check each post, compare date to todays date
-      let testDateString = "2023-09-08";
-      // console.log("line before push");
-      // console.log(todaysDate);
+      let testDate = "9999-01-01";
       if (post.eventDate > todaysDate) {
-        verifiedPost.push(post);
-        // console.log("pushed");
-        // setVerifiedPost({ ...verifiedPost, post });
-        // console.log(verifiedPost);
-        // date good? add to array
-        filteredPost--;
-        //reduce number of placeholders
-        // console.log(filteredPost);
+        updatedState.push(post);
       }
-      // console.log(verifiedPost);
     });
-    // Good posts found, show on screen
-    // setPostsLoaded(true);
+    setVerifiedPosts(updatedState);
     setPostsFiltered(true);
-    // if (filteredPost > 0) {
-    // If placeholders needed, add them to array
-    for (let i = 0; i < filteredPost; i++) {
-      // console.log(filteredPost);
-      // placeholders.push({ key: "value" });
-      setPlaceholders([...placeholders, { key: "value" }]);
-      // console.log(placeholders);
+    if (updatedState.length < 5) {
+      let desiredLength = 5 - updatedState.length;
+      for (let i = 1; i < desiredLength; i++) {
+        placeholderCount.push({ key: "value" });
+      }
     }
-    // ## placeholders set, fill them
+    setPlaceholders(placeholderCount);
     setFillPlaceHolders(true);
-    // }
-  }, [todaysDate, listOfPosts]);
+  }, [listOfPosts]);
 
   return (
     <div style={{ position: "relative", zIndex: "9997" }}>
@@ -102,8 +86,7 @@ function PublicDashboard() {
             <Container fluid className="pubEventContainer">
               {postsFiltered ? (
                 <>
-                  {verifiedPost.map((post) => {
-                    console.log("test");
+                  {verifiedPosts.map((post) => {
                     return (
                       <div className="postContainerContainer" key={uuidv4()}>
                         <div className="singlePost">
@@ -159,7 +142,7 @@ function PublicDashboard() {
               <Container>
                 <Button
                   variant="dark"
-                  className="mb-3"
+                  className="mb-3 mt-3"
                   style={{ width: "100%" }}
                   onClick={() => rerout()}
                 >

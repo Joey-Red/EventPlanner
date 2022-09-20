@@ -7,7 +7,6 @@ function EventPlaceholderEmpty(props) {
   return (
     <Container>
       <Card
-        className="mb-3"
         id="singleCard"
         style={{ minHeight: "328px", maxHeight: "328px", zIndex: "99999" }}
       >

@@ -9,23 +9,22 @@ function ViewAllEvents() {
   const [listOfPosts, setListOfPosts] = useState([{}]);
   const [postsLoaded, setPostsLoaded] = useState(false);
   const [placeholders, setPlaceholders] = useState([]);
-  let [verifiedPost, setVerifiedPost] = useState([]);
+  const [verifiedPosts, setVerifiedPosts] = useState([]);
   let [postsFiltered, setPostsFiltered] = useState(false);
   let [fillPlaceHolders, setFillPlaceHolders] = useState(false);
   let [todaysDate, setTodaysDate] = useState("");
+  let [filteredPost, setFilteredPost] = useState(1);
   // Fetch Posts
   useEffect(() => {
     const today = new Date();
     const yyyy = today.getFullYear();
     let mm = today.getMonth() + 1; // Months start at 0!
     let dd = today.getDate();
-
     if (dd < 10) dd = "0" + dd;
     if (mm < 10) mm = "0" + mm;
     const formattedToday = yyyy + "-" + mm + "-" + dd;
     setTodaysDate(formattedToday);
   }, []);
-
   useEffect(() => {
     Axios.get("https://eventplanner-api.herokuapp.com/retrieve_posts")
       .then((res) => {
@@ -37,37 +36,26 @@ function ViewAllEvents() {
       });
   }, []);
 
+  const updatedState = [];
+  const placeholderCount = [];
   useEffect(() => {
-    // Base 4 placeholders
-    let filteredPost = 4;
     listOfPosts.forEach((post) => {
-      // console.log(post);
-      // check each post, compare date to todays date
-      let testDateString = "2023-09-20";
+      let testDate = "2000-01-01";
       if (post.eventDate > todaysDate) {
-        // console.log(todaysDate);
-        verifiedPost.push(post);
-        // setVerifiedPost({ ...verifiedPost, post });
-        // date good? add to array
-        filteredPost--;
-        //reduce number of placeholders
-        // console.log(filteredPost);
+        updatedState.push(post);
       }
     });
-    // Good posts found, show on screen
+    setVerifiedPosts(updatedState);
     setPostsFiltered(true);
-    // if (filteredPost > 0) {
-    // If placeholders needed, add them to array
-    for (let i = 0; i < filteredPost; i++) {
-      // console.log(filteredPost);
-      // placeholders.push({ key: "value" });
-      setPlaceholders([...placeholders, { key: "value" }]);
-      // console.log(placeholders);
+    if (updatedState.length < 7) {
+      let desiredLength = 7 - updatedState.length;
+      for (let i = 1; i < desiredLength; i++) {
+        placeholderCount.push({ key: "value" });
+      }
     }
-    // # placeholders set, fill them
+    setPlaceholders(placeholderCount);
     setFillPlaceHolders(true);
-    // }
-  }, [todaysDate, listOfPosts]);
+  }, [listOfPosts]);
 
   return (
     <div style={{ position: "relative", zIndex: "9996" }}>
@@ -91,7 +79,7 @@ function ViewAllEvents() {
             <Container fluid className="allPubEventContainer">
               {postsFiltered ? (
                 <>
-                  {verifiedPost.map((post) => {
+                  {verifiedPosts.map((post) => {
                     return (
                       <div className="postContainerContainer" key={uuidv4()}>
                         <div className="singlePost">

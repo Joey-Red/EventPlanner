@@ -18,15 +18,15 @@ const store = configureStore({
 });
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <HashRouter>
-        <FrontRouter basename="https://joey-red.github.io/EventPlanner/" />
-      </HashRouter>
-      {/* Router for testing local */}
-      {/* <BrowserRouter>
-        <FrontRouter />
-      </BrowserRouter> */}
-    </Provider>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <Provider store={store}>
+    <HashRouter>
+      <FrontRouter basename="https://joey-red.github.io/EventPlanner/" />
+    </HashRouter>
+    {/* Router for testing local */}
+    {/* <BrowserRouter>
+      <FrontRouter />
+    </BrowserRouter> */}
+  </Provider>
+  // </React.StrictMode>
 );
