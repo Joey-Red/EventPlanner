@@ -3,7 +3,7 @@ import Axios from "axios";
 import TopWave from "./TopWave";
 import logo from "../img/FEPCircle.png";
 import jwt_decode from "jwt-decode";
-import { Button, Card, Container, Row, Badge } from "react-bootstrap";
+import { Button, Card, Container, Row, Badge, Spinner } from "react-bootstrap";
 function ViewEvent() {
   let [post, setPost] = useState({});
   let [postLoaded, setPostLoaded] = useState(false);
@@ -83,6 +83,15 @@ function ViewEvent() {
     >
       <div className="veBgImg"></div>
       <TopWave />
+      {!postLoaded ? (
+        <>
+          <Spinner animation="border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        </>
+      ) : (
+        <></>
+      )}
       {postLoaded && !noEventFound ? (
         <>
           return (
