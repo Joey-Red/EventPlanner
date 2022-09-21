@@ -73,6 +73,16 @@ $button-black-opaque: #2125297e;
   left: 0;
   filter: brightness(60%);
 }
+.getStartedLink,
+.getStartedLink:visited {
+  color: $primary-light;
+  border: none;
+  display: flex;
+}
+.getStartedLink:hover {
+  cursor: pointer;
+  color: $primary-light;
+}
 .agHeader,
 .peHeader,
 .ceHeader {

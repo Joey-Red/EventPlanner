@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Card, Form, Container, Row, ListGroup } from "react-bootstrap";
 import LogInAltMid from "./LogInAltMid";
+import { useSelector } from "react-redux";
+
 function AttentionGetter() {
+  let [displayLogin, setDisplayLogin] = useState(false);
+  const authState = useSelector((auth) => auth.authState.value);
   let noBackground = {
     background: "#F0F0ED",
     padding: "12px",
+    display: "flex",
   };
   let noBackgroundAlt = {
     background: "#F0F0ED",
@@ -18,8 +23,22 @@ function AttentionGetter() {
   let noBackgroundBody = {
     background: "#F0F0ED",
   };
-  let rerout = () => {
-    window.location = "https://joey-red.github.io/EventPlanner/#/create_event";
+  console.log(authState);
+
+  let rerout = (e) => {
+    e.preventDefault();
+    if (authState === true) {
+      window.location =
+        "https://joey-red.github.io/EventPlanner/#/create_event";
+    } else {
+      setDisplayLogin(true);
+      timer();
+    }
+  };
+  let timer = () => {
+    setTimeout(() => {
+      setDisplayLogin(false);
+    }, 3000);
   };
   return (
     <div className="agContainerDiv">
@@ -75,7 +94,8 @@ function AttentionGetter() {
                       </Card.Text>
                       <ListGroup as="ol" numbered style={noBackground}>
                         <ListGroup.Item as="li" style={noBackgroundAlt}>
-                          Sign in{" "}
+                          {" "}
+                          <div style={{ marginLeft: "1ch" }}>Sign in</div>
                           <div
                             style={{
                               marginLeft: "3px",
@@ -87,13 +107,46 @@ function AttentionGetter() {
                           </div>
                         </ListGroup.Item>
                         <ListGroup.Item as="li" style={noBackground}>
-                          Tell us about your event
+                          <div style={{ marginLeft: "1ch" }}>
+                            Tell us about your event
+                          </div>
                         </ListGroup.Item>
                         <ListGroup.Item as="li" style={noBackground}>
-                          Have fun at your event! Are you ready to{" "}
-                          <Button variant="dark" onClick={() => rerout()}>
+                          <div style={{ marginLeft: "1ch" }}>
+                            Have fun at your event, Lets
+                          </div>
+                          {/* <Button variant="dark" onClick={() => rerout()}>
                             Get Started
-                          </Button>
+                          </Button> */}
+                          <button
+                            className="getStartedLink"
+                            onClick={(e) => rerout(e)}
+                            style={{
+                              marginLeft: "0.5ch",
+                              textDecoration: "underline",
+                            }}
+                          >
+                            Get Started!
+                          </button>
+                          {displayLogin ? (
+                            <>
+                              <div
+                                variant="danger"
+                                style={{
+                                  display: "flex",
+                                  borderRadius: "0.375rem",
+                                  padding: "2px",
+                                  marginLeft: "0.5ch",
+                                  color: "rgb(143,61,75)",
+                                  backgroundColor: "rgb(248,215,218)",
+                                }}
+                              >
+                                You must log in first.
+                              </div>
+                            </>
+                          ) : (
+                            <></>
+                          )}
                         </ListGroup.Item>
                       </ListGroup>
                     </Row>

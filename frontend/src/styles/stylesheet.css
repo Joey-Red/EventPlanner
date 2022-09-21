@@ -59,6 +59,18 @@
   filter: brightness(60%);
 }
 
+.getStartedLink,
+.getStartedLink:visited {
+  color: #eb8276;
+  border: none;
+  display: flex;
+}
+
+.getStartedLink:hover {
+  cursor: pointer;
+  color: #eb8276;
+}
+
 .agHeader,
 .peHeader,
 .ceHeader {

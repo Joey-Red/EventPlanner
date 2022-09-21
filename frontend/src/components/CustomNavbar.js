@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
 import LogIn from "./LogIn";
 import LogInAlt from "./LogInAlt";
@@ -6,6 +6,23 @@ import logo from "../img/FEPHoriz.png";
 import { useSelector } from "react-redux";
 
 function CustomNavbar() {
+  let [displayLogin, setDisplayLogin] = useState(false);
+  let rerout = (e) => {
+    e.preventDefault();
+    if (authState === true) {
+      window.location =
+        "https://joey-red.github.io/EventPlanner/#/create_event";
+    } else {
+      e.stopPropagation();
+      setDisplayLogin(true);
+      timer();
+    }
+  };
+  let timer = () => {
+    setTimeout(() => {
+      setDisplayLogin(false);
+    }, 3000);
+  };
   let stingyStyles = {
     color: "#ffffff",
     fontSize: "1rem",
@@ -45,9 +62,31 @@ function CustomNavbar() {
             style={soloStyles}
             className="navBarOption"
           >
-            <NavDropdown.Item href="https://joey-red.github.io/EventPlanner/#/create_event">
+            <NavDropdown.Item onClick={(e) => rerout(e)}>
               Plan Your next Event
             </NavDropdown.Item>
+            {displayLogin ? (
+              <NavDropdown.Item>
+                <>
+                  <div
+                    variant="danger"
+                    style={{
+                      display: "flex",
+                      borderRadius: "0.375rem",
+                      padding: "2px",
+                      marginLeft: "0.5ch",
+                      color: "rgb(143,61,75)",
+                      backgroundColor: "rgb(248,215,218)",
+                      justifyContent: "center",
+                    }}
+                  >
+                    You must log in first.
+                  </div>
+                </>
+              </NavDropdown.Item>
+            ) : (
+              <></>
+            )}
             <NavDropdown.Item href="https://joey-red.github.io/EventPlanner/#/view_all_events">
               View Public Events
             </NavDropdown.Item>
