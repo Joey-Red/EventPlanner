@@ -85,9 +85,80 @@ function ViewEvent() {
       <TopWave />
       {!postLoaded ? (
         <>
-          <Spinner animation="border" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </Spinner>
+          <>
+            return (
+            <div>
+              <Container
+                style={centerEverythingContainer}
+                className="gutterContainer"
+              >
+                <Card
+                  style={{
+                    minHeight: "50vh",
+                    background: "none",
+                  }}
+                >
+                  <Card.Body style={centerEverything}>
+                    <Container
+                      style={{
+                        color: "black",
+                        background: "none",
+                      }}
+                    ></Container>
+                    <Card.Text
+                      className="eViteHeader"
+                      style={{ fontSize: "2rem" }}
+                    >
+                      <Spinner animation="border" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                      </Spinner>
+                    </Card.Text>
+                    <Card.Text className="eVite">
+                      <Spinner animation="border" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                      </Spinner>
+                    </Card.Text>
+                    <Card.Text
+                      className="eVite"
+                      style={{ textAlign: "center" }}
+                    >
+                      {post.eventDescription}
+                    </Card.Text>
+                    <Card.Text
+                      className="eVite"
+                      style={{ textAlign: "center" }}
+                    >
+                      <Spinner animation="border" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                      </Spinner>
+                    </Card.Text>
+                    <Card.Text
+                      className="eVite"
+                      style={{ zIndex: "1", textAlign: "center" }}
+                    >
+                      <Spinner animation="border" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                      </Spinner>
+                    </Card.Text>
+                    <img
+                      src={logo}
+                      alt="Free Event Planner Logo"
+                      style={{
+                        maxHeight: "90px",
+                        maxWidth: "93px",
+                        minHeight: "90px",
+                        minWidth: "93px",
+                        position: "absolute",
+                        bottom: "12px",
+                        right: "12px",
+                        zIndex: "0",
+                      }}
+                    />
+                  </Card.Body>
+                </Card>
+              </Container>
+            </div>
+          </>
         </>
       ) : (
         <></>
