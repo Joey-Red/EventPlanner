@@ -70,7 +70,7 @@ function CreateEvent() {
       setTimeValid(false);
     }
 
-    if (eventDate.length > 0 && formattedToday < eventDate) {
+    if (eventDate.length > 0 && formattedToday <= eventDate) {
       setDateValid(true);
     } else if (eventDate.length <= 0 || formattedToday > eventDate) {
       setDateValid(false);

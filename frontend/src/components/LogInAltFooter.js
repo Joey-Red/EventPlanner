@@ -9,7 +9,6 @@ function LogIn() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.value);
   const authState = useSelector((auth) => auth.authState.value);
-
   useEffect(() => {
     /* global google */
     if (google) {

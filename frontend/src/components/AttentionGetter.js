@@ -23,7 +23,6 @@ function AttentionGetter() {
   let noBackgroundBody = {
     background: "#F0F0ED",
   };
-  console.log(authState);
 
   let rerout = (e) => {
     e.preventDefault();
@@ -124,6 +123,7 @@ function AttentionGetter() {
                             style={{
                               marginLeft: "0.5ch",
                               textDecoration: "underline",
+                              background: "none",
                             }}
                           >
                             Get Started!
